@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    <!-- Homepage -->
+    <url>
+        <loc>https://vyrospace.com/</loc>
+        <lastmod>2026-09-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://vyrospace.com/vyro_main_png.png</image:loc>
+            <image:title>VYROSPACE - 3D Rendering and Architectural Visualization Studio</image:title>
+        </image:image>
+    </url>
+
+    <!-- Exterior 3D Rendering -->
+    <url>
+        <loc>https://vyrospace.com/exterior-rendering.html</loc>
+        <lastmod>2026-09-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://vyrospace.com/generated%20image/Exterior%203d%20renders/hf_20260221_123254_e76dc5b9-0c51-4465-aec0-39c0541b2e60.png</image:loc>
+            <image:title>Exterior 3D Rendering Services - Photorealistic Architectural Visualization</image:title>
+        </image:image>
+    </url>
+
+    <!-- Interior 3D Visualization -->
+    <url>
+        <loc>https://vyrospace.com/interior-visualization.html</loc>
+        <lastmod>2026-09-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1600&amp;q=85</image:loc>
+            <image:title>Interior 3D Visualization Services - VYROSPACE</image:title>
+        </image:image>
+    </url>
+
+    <!-- Product 3D Visualization -->
+    <url>
+        <loc>https://vyrospace.com/product-visualization.html</loc>
+        <lastmod>2026-09-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1600&amp;q=85</image:loc>
+            <image:title>3D Product Visualization Services - VYROSPACE</image:title>
+        </image:image>
+    </url>
+
+    <!-- 3D Walkthrough -->
+    <url>
+        <loc>https://vyrospace.com/3d-walkthrough.html</loc>
+        <lastmod>2026-09-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&amp;q=85</image:loc>
+            <image:title>Immersive 3D Walkthrough Services - VYROSPACE</image:title>
+        </image:image>
+    </url>
+</urlset>

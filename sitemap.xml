@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
@@ -60,5 +60,13 @@
             <image:loc>https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&amp;q=85</image:loc>
             <image:title>Immersive 3D Walkthrough Services - VYROSPACE</image:title>
         </image:image>
+    </url>
+
+    <!-- Privacy Policy -->
+    <url>
+        <loc>https://vyrospace.com/privacy-policy.html</loc>
+        <lastmod>2026-09-06</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
     </url>
 </urlset>

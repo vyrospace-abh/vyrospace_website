@@ -1,0 +1,20 @@
+.git
+.gitignore
+.claude
+node_modules
+*.md
+!README.md
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.local
+Docker Desktop Installer.exe
+generated image/
+color_palets/
+*.mp4
+hf_*.mp4
+*.png.bak
+screenshots/
+.vscode/
+.idea/

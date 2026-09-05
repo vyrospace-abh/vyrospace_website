@@ -1,0 +1,28 @@
+{
+  "name": "VYROSPACE - 3D Rendering & Architectural Visualization",
+  "short_name": "VYROSPACE",
+  "description": "Premium 3D visualization and architectural rendering studio. Crafting immersive digital experiences that push the boundaries of visual storytelling.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#ff6500",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "vyro_main_png.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo_main_png.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "design", "photography"],
+  "lang": "en",
+  "scope": "/",
+  "id": "/"
+}

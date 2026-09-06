@@ -62,4 +62,12 @@
         </image:image>
     </url>
 
+    <!-- Terms of Use & Privacy Policy -->
+    <url>
+        <loc>https://vyrospace.com/privacy-policy.html</loc>
+        <lastmod>2026-09-06</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
 </urlset>

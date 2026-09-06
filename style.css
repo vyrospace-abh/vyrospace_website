@@ -228,7 +228,7 @@ ol {
 }
 
 .footer-brand .nav-logo-img {
-    height: 146px;
+    height: 80px;
     margin-bottom: 4px;
 }
 
@@ -1583,7 +1583,14 @@ ol {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
     gap: 48px;
+    align-items: start;
     margin-bottom: 60px;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .footer-brand p {

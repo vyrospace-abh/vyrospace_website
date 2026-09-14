@@ -58,18 +58,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else if (offset === -1) {
                     // Immediate Left Card
                     card.style.transform = `translateX(-${spacing1}px) translateZ(-130px) rotateY(${angle1}deg) scale(${scale1})`;
-                    card.style.opacity = isMobile ? '0.7' : '0.84';
+                    card.style.opacity = isMobile ? '0.72' : '0.84';
                     card.style.zIndex = '9';
                     card.style.pointerEvents = 'auto';
-                    card.style.filter = 'brightness(0.88)';
+                    card.style.filter = 'none';
                     card.classList.remove('is-active');
                 } else if (offset === 1) {
                     // Immediate Right Card
                     card.style.transform = `translateX(${spacing1}px) translateZ(-130px) rotateY(-${angle1}deg) scale(${scale1})`;
-                    card.style.opacity = isMobile ? '0.7' : '0.84';
+                    card.style.opacity = isMobile ? '0.72' : '0.84';
                     card.style.zIndex = '9';
                     card.style.pointerEvents = 'auto';
-                    card.style.filter = 'brightness(0.88)';
+                    card.style.filter = 'none';
                     card.classList.remove('is-active');
                 } else if (offset === -2) {
                     // Far Left Card
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     card.style.opacity = isMobile ? '0.35' : '0.52';
                     card.style.zIndex = '6';
                     card.style.pointerEvents = 'auto';
-                    card.style.filter = 'brightness(0.72)';
+                    card.style.filter = 'none';
                     card.classList.remove('is-active');
                 } else if (offset === 2) {
                     // Far Right Card
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     card.style.opacity = isMobile ? '0.35' : '0.52';
                     card.style.zIndex = '6';
                     card.style.pointerEvents = 'auto';
-                    card.style.filter = 'brightness(0.72)';
+                    card.style.filter = 'none';
                     card.classList.remove('is-active');
                 } else {
                     // Culled back cards
@@ -95,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     card.style.opacity = '0';
                     card.style.zIndex = '1';
                     card.style.pointerEvents = 'none';
+                    card.style.filter = 'none';
                     card.classList.remove('is-active');
                 }
             });
@@ -107,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const thumb = activeCard.getAttribute('data-thumb') || '';
 
                 if (ctrlThumb && thumb) {
-                    ctrlThumb.style.backgroundImage = `url("${thumb}")`;
+                    ctrlThumb.style.backgroundImage = `url("${encodeURI(thumb)}")`;
                 }
                 if (ctrlTitle) {
                     ctrlTitle.textContent = title;
@@ -139,13 +140,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // 1. Direct Card Clicks & Taps (clicking any flanking card rotates it to center)
+        // 1. Direct Card Clicks & Taps with synthetic click protection
+        let lastTouchHandled = 0;
         cards.forEach((card, idx) => {
             const selectCard = (e) => {
+                if (e && e.type === 'click' && Date.now() - lastTouchHandled < 450) {
+                    return;
+                }
                 const offset = getCardOffset(idx, activeIndex);
                 if (offset !== 0) {
-                    if (e) {
+                    if (e && e.cancelable) {
                         e.preventDefault();
+                    }
+                    if (e) {
                         e.stopPropagation();
                     }
                     goTo(idx);
@@ -155,13 +162,15 @@ document.addEventListener('DOMContentLoaded', () => {
             card.addEventListener('click', selectCard);
             card.addEventListener('touchend', (e) => {
                 if (!isSwipingMajor) {
+                    lastTouchHandled = Date.now();
                     selectCard(e);
                 }
-            });
+            }, { passive: true });
         });
 
         // 2. Stage Left & Right Click/Tap Zones (matches user's annotated mouse/touch areas)
         stage.addEventListener('click', (e) => {
+            if (Date.now() - lastTouchHandled < 450) return;
             if (e.target.closest('.work-card-3d.is-active') || e.target.closest('.work-carousel-controls') || e.target.closest('.work-card-3d')) return;
             const rect = stage.getBoundingClientRect();
             const clickX = e.clientX - rect.left;
@@ -177,24 +186,28 @@ document.addEventListener('DOMContentLoaded', () => {
         // 3. Controller Buttons (Prev & Next with immediate click & touch response)
         if (prevBtn) {
             const triggerPrev = (e) => {
-                e.preventDefault();
-                e.stopPropagation();
+                if (e && e.type === 'click' && Date.now() - lastTouchHandled < 450) return;
+                if (e && e.type === 'touchend') lastTouchHandled = Date.now();
+                if (e && e.cancelable) e.preventDefault();
+                if (e) e.stopPropagation();
                 goTo(activeIndex - 1);
                 startLoop();
             };
             prevBtn.addEventListener('click', triggerPrev);
-            prevBtn.addEventListener('touchend', triggerPrev);
+            prevBtn.addEventListener('touchend', triggerPrev, { passive: true });
             prevBtn.addEventListener('touchstart', (e) => e.stopPropagation(), { passive: true });
         }
         if (nextBtn) {
             const triggerNext = (e) => {
-                e.preventDefault();
-                e.stopPropagation();
+                if (e && e.type === 'click' && Date.now() - lastTouchHandled < 450) return;
+                if (e && e.type === 'touchend') lastTouchHandled = Date.now();
+                if (e && e.cancelable) e.preventDefault();
+                if (e) e.stopPropagation();
                 goTo(activeIndex + 1);
                 startLoop();
             };
             nextBtn.addEventListener('click', triggerNext);
-            nextBtn.addEventListener('touchend', triggerNext);
+            nextBtn.addEventListener('touchend', triggerNext, { passive: true });
             nextBtn.addEventListener('touchstart', (e) => e.stopPropagation(), { passive: true });
         }
 
@@ -202,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
         viewport.addEventListener('mouseenter', () => { isPaused = true; });
         viewport.addEventListener('mouseleave', () => { isPaused = false; });
 
-        // 5. Touch & Swipe Gestures on Mobile
+        // 5. Touch & Swipe Gestures on Mobile (refined flick vs scroll separation)
         let touchStartX = 0;
         let touchStartY = 0;
         let touchStartTime = 0;
@@ -221,7 +234,8 @@ document.addEventListener('DOMContentLoaded', () => {
         viewport.addEventListener('touchmove', (e) => {
             if (e.touches && e.touches.length > 0) {
                 const dx = Math.abs(e.touches[0].clientX - touchStartX);
-                if (dx > 12) {
+                const dy = Math.abs(e.touches[0].clientY - touchStartY);
+                if (dx > 14 && dx > dy) {
                     isSwipingMajor = true;
                 }
             }
@@ -232,8 +246,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.changedTouches && e.changedTouches.length > 0) {
                 const deltaX = e.changedTouches[0].clientX - touchStartX;
                 const deltaY = e.changedTouches[0].clientY - touchStartY;
-                // Detect horizontal swipe (flick of 22px or more)
-                if (Math.abs(deltaX) > 22 && Math.abs(deltaX) > Math.abs(deltaY) * 0.75) {
+                const elapsed = Date.now() - touchStartTime;
+                // Detect clean horizontal swipe: intentional horizontal drag or quick flick
+                if (Math.abs(deltaX) > 28 && Math.abs(deltaX) > Math.abs(deltaY) * 1.35 && elapsed < 800) {
+                    lastTouchHandled = Date.now();
                     if (deltaX < 0) {
                         goTo(activeIndex + 1); // swipe left -> next
                     } else {
@@ -242,8 +258,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     startLoop();
                 }
             }
-            setTimeout(() => { isSwipingMajor = false; }, 80);
-        });
+            setTimeout(() => { isSwipingMajor = false; }, 120);
+        }, { passive: true });
 
         // 6. Desktop Mouse Drag Gesture with click safety
         let isMouseDown = false;

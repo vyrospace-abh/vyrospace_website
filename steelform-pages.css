@@ -18,6 +18,9 @@
     border-radius: var(--radius-stadium);
     background-color: #191A1B;
     overflow: hidden;
+    isolation: isolate;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    mask-image: radial-gradient(white, black);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1052,11 +1055,7 @@
         letter-spacing: 1px;
     }
 }
-/* Crisp High-DPI image and icon rendering */
-img, .nav-brand-img, .footer-logo-img, .footer-social-icon, .area-card-bg, .work-card-bg {
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: auto;
-    transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+/* Clean High-DPI image and icon rendering without GPU layer thrashing */
+img {
+    max-width: 100%;
 }

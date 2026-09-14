@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>VYROSPACE &mdash; Photorealistic 3D Visualization Studio</title>
     <meta name="description"
         content="Vyrospace: Photorealistic 3D visualization for architecture, interiors, products, and brands. We shape spaces before they exist.">
@@ -40,11 +40,11 @@
             } else if (window.performance && performance.navigation && performance.navigation.type === 1) {
                 isReload = true;
             }
-        } catch (e) {}
+        } catch (e) { }
 
         if (isReload) {
             if (window.location.hash) {
-                try { history.replaceState(null, null, window.location.pathname); } catch (e) {}
+                try { history.replaceState(null, null, window.location.pathname); } catch (e) { }
             }
             window.scrollTo(0, 0);
         } else if (!window.location.hash) {
@@ -79,7 +79,8 @@
         <!-- 1. HERO SECTION (Signature Stadium Rounded Frame) -->
         <section class="hero-stadium" id="hero">
             <!-- Background Architectural Video (Optimized for ultra-fast mobile & desktop streaming) -->
-            <video autoplay muted loop playsinline preload="metadata" class="hero-video-bg" poster="web_images/hero_poster.webp">
+            <video autoplay muted loop playsinline preload="metadata" class="hero-video-bg"
+                poster="web_images/hero_poster.webp">
                 <source src="web_images/hero_archviz_mobile.mp4" type="video/mp4" media="(max-width: 768px)">
                 <source src="web_images/hero_archviz_ultrafast.mp4" type="video/mp4">
             </video>
@@ -98,7 +99,8 @@
 
                 <div class="nav-contact-action">
                     <a href="#contact" class="nav-cta-pill">START A PROJECT</a>
-                    <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation">&#9776;</button>
+                    <button class="mobile-nav-toggle" id="mobileNavToggle"
+                        aria-label="Toggle navigation">&#9776;</button>
                 </div>
             </nav>
 
@@ -184,7 +186,8 @@
                     </div>
                 </a>
                 <a href="product-visualization.html" class="area-card">
-                    <div class="area-card-bg" style="background-image: url('web_images/product_visualization_hero.webp');"></div>
+                    <div class="area-card-bg"
+                        style="background-image: url('web_images/product_visualization_hero.webp');"></div>
                     <div class="area-card-overlay"></div>
                     <div class="area-card-content">
                         <span class="area-num">03 / CGI PRODUCT ANIMATION</span>
@@ -228,8 +231,12 @@
                 <div class="work-carousel-stage" id="workCarouselStage">
 
                     <!-- Project 001 -->
-                    <div class="work-card-3d" data-index="0" data-title="VILLA COMPLEX" data-cat="ARCHITECTURE" data-loc="Mediterranean Coast" data-thumb="generated image/Exterior 3d renders/hf_20260221_123254_e76dc5b9-0c51-4465-aec0-39c0541b2e60.webp">
-                        <div class="work-card-bg" style="background-image: url('generated image/Exterior 3d renders/hf_20260221_123254_e76dc5b9-0c51-4465-aec0-39c0541b2e60.webp');"></div>
+                    <div class="work-card-3d" data-index="0" data-title="VILLA COMPLEX" data-cat="ARCHITECTURE"
+                        data-loc="Mediterranean Coast"
+                        data-thumb="generated image/Exterior 3d renders/hf_20260221_123254_e76dc5b9-0c51-4465-aec0-39c0541b2e60.webp">
+                        <div class="work-card-bg"
+                            style="background-image: url('generated image/Exterior 3d renders/hf_20260221_123254_e76dc5b9-0c51-4465-aec0-39c0541b2e60.webp');">
+                        </div>
                         <div class="work-card-glass"></div>
                         <div class="work-card-top">
                             <span class="work-card-badge">EXPLORE &nearr;</span>
@@ -238,15 +245,20 @@
                         <div class="work-card-bottom">
                             <span class="work-card-num">001 &bull; ARCHITECTURE</span>
                             <h3 class="work-card-title">VILLA COMPLEX</h3>
-                            <p class="work-card-desc">Sculptural concrete residence embedded into coastal cliffs with natural daylight simulation.</p>
+                            <p class="work-card-desc">Sculptural concrete residence embedded into coastal cliffs with
+                                natural daylight simulation.</p>
                             <span class="work-card-loc">Mediterranean Coast &bull; Photorealistic CGI</span>
                         </div>
                         <a href="exterior-rendering.html" class="work-card-link" aria-label="View Villa Complex"></a>
                     </div>
 
                     <!-- Project 002 -->
-                    <div class="work-card-3d" data-index="1" data-title="TROPICAL RESORT" data-cat="HOSPITALITY" data-loc="Bali Coast" data-thumb="generated image/Exterior 3d renders/hf_20260221_113256_a02691ce-7f8d-4e31-898c-9289a96d7711.webp">
-                        <div class="work-card-bg" style="background-image: url('generated image/Exterior 3d renders/hf_20260221_113256_a02691ce-7f8d-4e31-898c-9289a96d7711.webp');"></div>
+                    <div class="work-card-3d" data-index="1" data-title="TROPICAL RESORT" data-cat="HOSPITALITY"
+                        data-loc="Bali Coast"
+                        data-thumb="generated image/Exterior 3d renders/hf_20260221_113256_a02691ce-7f8d-4e31-898c-9289a96d7711.webp">
+                        <div class="work-card-bg"
+                            style="background-image: url('generated image/Exterior 3d renders/hf_20260221_113256_a02691ce-7f8d-4e31-898c-9289a96d7711.webp');">
+                        </div>
                         <div class="work-card-glass"></div>
                         <div class="work-card-top">
                             <span class="work-card-badge">EXPLORE &nearr;</span>
@@ -255,15 +267,20 @@
                         <div class="work-card-bottom">
                             <span class="work-card-num">002 &bull; HOSPITALITY</span>
                             <h3 class="work-card-title">TROPICAL RESORT</h3>
-                            <p class="work-card-desc">Atmospheric luxury canopy entrance with warm interior illumination and lush landscaping.</p>
+                            <p class="work-card-desc">Atmospheric luxury canopy entrance with warm interior illumination
+                                and lush landscaping.</p>
                             <span class="work-card-loc">Bali Coast &bull; Exterior Visualization</span>
                         </div>
                         <a href="exterior-rendering.html" class="work-card-link" aria-label="View Tropical Resort"></a>
                     </div>
 
                     <!-- Project 003 -->
-                    <div class="work-card-3d" data-index="2" data-title="MINIMALIST RESIDENCE" data-cat="RESIDENTIAL" data-loc="Kyoto Suburbs" data-thumb="generated image/Exterior 3d renders/hf_20260221_112742_5bca88a7-871d-47f9-a859-cf836fb69ec4.webp">
-                        <div class="work-card-bg" style="background-image: url('generated image/Exterior 3d renders/hf_20260221_112742_5bca88a7-871d-47f9-a859-cf836fb69ec4.webp');"></div>
+                    <div class="work-card-3d" data-index="2" data-title="MINIMALIST RESIDENCE" data-cat="RESIDENTIAL"
+                        data-loc="Kyoto Suburbs"
+                        data-thumb="generated image/Exterior 3d renders/hf_20260221_112742_5bca88a7-871d-47f9-a859-cf836fb69ec4.webp">
+                        <div class="work-card-bg"
+                            style="background-image: url('generated image/Exterior 3d renders/hf_20260221_112742_5bca88a7-871d-47f9-a859-cf836fb69ec4.webp');">
+                        </div>
                         <div class="work-card-glass"></div>
                         <div class="work-card-top">
                             <span class="work-card-badge">EXPLORE &nearr;</span>
@@ -272,15 +289,21 @@
                         <div class="work-card-bottom">
                             <span class="work-card-num">003 &bull; RESIDENTIAL</span>
                             <h3 class="work-card-title">MINIMALIST RESIDENCE</h3>
-                            <p class="work-card-desc">Cantilevered volumes with delicate stone textures, slatted timber accents, and sunset lighting.</p>
+                            <p class="work-card-desc">Cantilevered volumes with delicate stone textures, slatted timber
+                                accents, and sunset lighting.</p>
                             <span class="work-card-loc">Kyoto Suburbs &bull; Architecture Visualization</span>
                         </div>
-                        <a href="exterior-rendering.html" class="work-card-link" aria-label="View Minimalist Residence"></a>
+                        <a href="exterior-rendering.html" class="work-card-link"
+                            aria-label="View Minimalist Residence"></a>
                     </div>
 
                     <!-- Project 004 -->
-                    <div class="work-card-3d" data-index="3" data-title="COMMERCIAL COMPLEX" data-cat="URBAN / COMMERCIAL" data-loc="Metropolis Center" data-thumb="generated image/Exterior 3d renders/hf_20260221_115943_a112597f-3e44-4883-919c-834eb1b8e843.webp">
-                        <div class="work-card-bg" style="background-image: url('generated image/Exterior 3d renders/hf_20260221_115943_a112597f-3e44-4883-919c-834eb1b8e843.webp');"></div>
+                    <div class="work-card-3d" data-index="3" data-title="COMMERCIAL COMPLEX"
+                        data-cat="URBAN / COMMERCIAL" data-loc="Metropolis Center"
+                        data-thumb="generated image/Exterior 3d renders/hf_20260221_115943_a112597f-3e44-4883-919c-834eb1b8e843.webp">
+                        <div class="work-card-bg"
+                            style="background-image: url('generated image/Exterior 3d renders/hf_20260221_115943_a112597f-3e44-4883-919c-834eb1b8e843.webp');">
+                        </div>
                         <div class="work-card-glass"></div>
                         <div class="work-card-top">
                             <span class="work-card-badge">EXPLORE &nearr;</span>
@@ -289,15 +312,21 @@
                         <div class="work-card-bottom">
                             <span class="work-card-num">004 &bull; URBAN / COMMERCIAL</span>
                             <h3 class="work-card-title">COMMERCIAL COMPLEX</h3>
-                            <p class="work-card-desc">High-density urban tower architecture reflecting twilight sky and street-level atmosphere.</p>
+                            <p class="work-card-desc">High-density urban tower architecture reflecting twilight sky and
+                                street-level atmosphere.</p>
                             <span class="work-card-loc">Metropolis Center &bull; High-Rise CGI</span>
                         </div>
-                        <a href="exterior-rendering.html" class="work-card-link" aria-label="View Commercial Complex"></a>
+                        <a href="exterior-rendering.html" class="work-card-link"
+                            aria-label="View Commercial Complex"></a>
                     </div>
 
                     <!-- Project 005 -->
-                    <div class="work-card-3d" data-index="4" data-title="CLIFF RESIDENCE" data-cat="ARCHITECTURE" data-loc="Santorini Cliff" data-thumb="generated image/Exterior 3d renders/hf_20260221_121010_411e0084-fa7b-40fe-9478-e40eaae612a9.webp">
-                        <div class="work-card-bg" style="background-image: url('generated image/Exterior 3d renders/hf_20260221_121010_411e0084-fa7b-40fe-9478-e40eaae612a9.webp');"></div>
+                    <div class="work-card-3d" data-index="4" data-title="CLIFF RESIDENCE" data-cat="ARCHITECTURE"
+                        data-loc="Santorini Cliff"
+                        data-thumb="generated image/Exterior 3d renders/hf_20260221_121010_411e0084-fa7b-40fe-9478-e40eaae612a9.webp">
+                        <div class="work-card-bg"
+                            style="background-image: url('generated image/Exterior 3d renders/hf_20260221_121010_411e0084-fa7b-40fe-9478-e40eaae612a9.webp');">
+                        </div>
                         <div class="work-card-glass"></div>
                         <div class="work-card-top">
                             <span class="work-card-badge">EXPLORE &nearr;</span>
@@ -306,15 +335,20 @@
                         <div class="work-card-bottom">
                             <span class="work-card-num">005 &bull; ARCHITECTURE</span>
                             <h3 class="work-card-title">CLIFF RESIDENCE</h3>
-                            <p class="work-card-desc">Geometric terraced pavilions framing panoramic ocean horizon with warm interior glow.</p>
+                            <p class="work-card-desc">Geometric terraced pavilions framing panoramic ocean horizon with
+                                warm interior glow.</p>
                             <span class="work-card-loc">Santorini Cliff &bull; Exterior CGI</span>
                         </div>
                         <a href="exterior-rendering.html" class="work-card-link" aria-label="View Cliff Residence"></a>
                     </div>
 
                     <!-- Project 006 -->
-                    <div class="work-card-3d" data-index="5" data-title="NORDIC PAVILION" data-cat="ARCHITECTURE" data-loc="Scandinavian Forest" data-thumb="generated image/Exterior 3d renders/hf_20260221_121513_303f53cf-b83a-4855-addb-8e6ac72d83f4.webp">
-                        <div class="work-card-bg" style="background-image: url('generated image/Exterior 3d renders/hf_20260221_121513_303f53cf-b83a-4855-addb-8e6ac72d83f4.webp');"></div>
+                    <div class="work-card-3d" data-index="5" data-title="NORDIC PAVILION" data-cat="ARCHITECTURE"
+                        data-loc="Scandinavian Forest"
+                        data-thumb="generated image/Exterior 3d renders/hf_20260221_121513_303f53cf-b83a-4855-addb-8e6ac72d83f4.webp">
+                        <div class="work-card-bg"
+                            style="background-image: url('generated image/Exterior 3d renders/hf_20260221_121513_303f53cf-b83a-4855-addb-8e6ac72d83f4.webp');">
+                        </div>
                         <div class="work-card-glass"></div>
                         <div class="work-card-top">
                             <span class="work-card-badge">EXPLORE &nearr;</span>
@@ -323,7 +357,8 @@
                         <div class="work-card-bottom">
                             <span class="work-card-num">006 &bull; ARCHITECTURE</span>
                             <h3 class="work-card-title">NORDIC PAVILION</h3>
-                            <p class="work-card-desc">Laminated timber glasshouse harmonizing minimalist Nordic architecture with surrounding pine trees.</p>
+                            <p class="work-card-desc">Laminated timber glasshouse harmonizing minimalist Nordic
+                                architecture with surrounding pine trees.</p>
                             <span class="work-card-loc">Scandinavian Forest &bull; Architectural Animation</span>
                         </div>
                         <a href="exterior-rendering.html" class="work-card-link" aria-label="View Nordic Pavilion"></a>
@@ -333,7 +368,8 @@
 
                 <!-- Floating Glass Controller Pill -->
                 <div class="work-carousel-controls">
-                    <button class="work-ctrl-btn work-ctrl-prev" id="workCarouselPrev" aria-label="Previous Project">&larr;</button>
+                    <button class="work-ctrl-btn work-ctrl-prev" id="workCarouselPrev"
+                        aria-label="Previous Project">&larr;</button>
                     <div class="work-ctrl-meta">
                         <div class="work-ctrl-thumb" id="workCtrlThumb"></div>
                         <div class="work-ctrl-text">
@@ -341,7 +377,8 @@
                             <span class="work-ctrl-cat" id="workCtrlCat">ARCHITECTURE &bull; 1 / 6</span>
                         </div>
                     </div>
-                    <button class="work-ctrl-btn work-ctrl-next" id="workCarouselNext" aria-label="Next Project">&rarr;</button>
+                    <button class="work-ctrl-btn work-ctrl-next" id="workCarouselNext"
+                        aria-label="Next Project">&rarr;</button>
                 </div>
             </div>
         </div>
@@ -446,7 +483,8 @@
                         </li>
                         <li>
                             <span class="contact-info-label">WHATSAPP</span>
-                            <a href="https://wa.me/918460385958" target="_blank" rel="noopener noreferrer">+91 84603 85958</a>
+                            <a href="https://wa.me/918460385958" target="_blank" rel="noopener noreferrer">+91 84603
+                                85958</a>
                         </li>
                         <li>
                             <span class="contact-info-label">BASED IN</span>
@@ -515,18 +553,22 @@
                 <div class="footer-socials">
                     <a href="https://www.instagram.com/vyrospace_" target="_blank" rel="noopener noreferrer"
                         aria-label="Instagram" class="social-btn social-btn-instagram">
-                        <img src="steelform_assets/icon_instagram_official.svg" alt="Instagram" class="footer-social-icon" decoding="async">
+                        <img src="steelform_assets/icon_instagram_official.svg" alt="Instagram"
+                            class="footer-social-icon" decoding="async">
                     </a>
                     <a href="https://www.linkedin.com/company/vyrospace/about/?viewAsMember=true" target="_blank"
                         rel="noopener noreferrer" aria-label="LinkedIn" class="social-btn social-btn-linkedin">
-                        <img src="steelform_assets/icon_linkedin_official.svg" alt="LinkedIn" class="footer-social-icon" decoding="async">
+                        <img src="steelform_assets/icon_linkedin_official.svg" alt="LinkedIn" class="footer-social-icon"
+                            decoding="async">
                     </a>
                     <a href="#" aria-label="YouTube" class="social-btn social-btn-youtube">
-                        <img src="steelform_assets/icon_youtube_official.svg" alt="YouTube" class="footer-social-icon" decoding="async">
+                        <img src="steelform_assets/icon_youtube_official.svg" alt="YouTube" class="footer-social-icon"
+                            decoding="async">
                     </a>
-                    <a href="https://wa.me/918460385958" target="_blank" rel="noopener noreferrer"
-                        aria-label="WhatsApp" class="social-btn social-btn-whatsapp" title="Chat on WhatsApp (+91 84603 85958)">
-                        <img src="steelform_assets/icon_whatsapp_official.svg" alt="WhatsApp" class="footer-social-icon" decoding="async">
+                    <a href="https://wa.me/918460385958" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"
+                        class="social-btn social-btn-whatsapp" title="Chat on WhatsApp (+91 84603 85958)">
+                        <img src="steelform_assets/icon_whatsapp_official.svg" alt="WhatsApp" class="footer-social-icon"
+                            decoding="async">
                     </a>
                 </div>
                 <div class="footer-brand">
@@ -549,4 +591,3 @@
 </body>
 
 </html>
-

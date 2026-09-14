@@ -107,16 +107,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const floatingNav = document.getElementById('floatingNav');
     let lastScrollY = window.scrollY;
     const heroSection = document.getElementById('hero');
+    let cachedHeroThreshold = 380;
+    let navRaf = null;
+
+    function recalculateNavThreshold() {
+        const heroHeight = heroSection ? heroSection.offsetHeight : 600;
+        cachedHeroThreshold = Math.min(heroHeight * 0.45, 380);
+    }
+    recalculateNavThreshold();
+    window.addEventListener('resize', recalculateNavThreshold, { passive: true });
 
     function updateFloatingNav() {
         if (!floatingNav) return;
         const currentScrollY = window.scrollY;
 
-        // Threshold before floating nav can appear (near hero top it stays hidden)
-        const heroHeight = heroSection ? heroSection.offsetHeight : 600;
-        const threshold = Math.min(heroHeight * 0.45, 380);
-
-        if (currentScrollY <= threshold) {
+        if (currentScrollY <= cachedHeroThreshold) {
             floatingNav.classList.remove('is-active');
         } else {
             const diff = currentScrollY - lastScrollY;
@@ -132,9 +137,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         lastScrollY = currentScrollY;
+        navRaf = null;
     }
 
-    window.addEventListener('scroll', updateFloatingNav, { passive: true });
+    window.addEventListener('scroll', () => {
+        if (!navRaf) {
+            navRaf = requestAnimationFrame(updateFloatingNav);
+        }
+    }, { passive: true });
 
     // Logo click in floating nav: return smoothly to main homepage hero
     if (floatingNav) {

@@ -18,9 +18,6 @@
     border-radius: var(--radius-stadium);
     background-color: #191A1B;
     overflow: hidden;
-    isolation: isolate;
-    -webkit-mask-image: -webkit-radial-gradient(white, black);
-    mask-image: radial-gradient(white, black);
     display: flex;
     flex-direction: column;
     justify-content: space-between;

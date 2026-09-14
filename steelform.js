@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     card.style.opacity = '1';
                     card.style.zIndex = '12';
                     card.style.pointerEvents = 'auto';
-                    card.style.filter = 'none';
+                    card.style.filter = 'brightness(1)';
                     card.classList.add('is-active');
                 } else if (offset === -1) {
                     // Immediate Left Card
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     card.style.opacity = isMobile ? '0.72' : '0.84';
                     card.style.zIndex = '9';
                     card.style.pointerEvents = 'auto';
-                    card.style.filter = 'none';
+                    card.style.filter = 'brightness(0.88)';
                     card.classList.remove('is-active');
                 } else if (offset === 1) {
                     // Immediate Right Card
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     card.style.opacity = isMobile ? '0.72' : '0.84';
                     card.style.zIndex = '9';
                     card.style.pointerEvents = 'auto';
-                    card.style.filter = 'none';
+                    card.style.filter = 'brightness(0.88)';
                     card.classList.remove('is-active');
                 } else if (offset === -2) {
                     // Far Left Card
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     card.style.opacity = isMobile ? '0.35' : '0.52';
                     card.style.zIndex = '6';
                     card.style.pointerEvents = 'auto';
-                    card.style.filter = 'none';
+                    card.style.filter = 'brightness(0.72)';
                     card.classList.remove('is-active');
                 } else if (offset === 2) {
                     // Far Right Card
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     card.style.opacity = isMobile ? '0.35' : '0.52';
                     card.style.zIndex = '6';
                     card.style.pointerEvents = 'auto';
-                    card.style.filter = 'none';
+                    card.style.filter = 'brightness(0.72)';
                     card.classList.remove('is-active');
                 } else {
                     // Culled back cards
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     card.style.opacity = '0';
                     card.style.zIndex = '1';
                     card.style.pointerEvents = 'none';
-                    card.style.filter = 'none';
+                    card.style.filter = 'brightness(0.5)';
                     card.classList.remove('is-active');
                 }
             });

@@ -118,9 +118,6 @@ body {
     border-radius: var(--radius-stadium);
     background-color: #191A1B;
     overflow: hidden;
-    isolation: isolate;
-    -webkit-mask-image: -webkit-radial-gradient(white, black);
-    mask-image: radial-gradient(white, black);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -710,9 +707,6 @@ body {
     border-top: 1.5px solid rgba(255, 255, 255, 0.55);
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     overflow: hidden;
-    isolation: isolate;
-    -webkit-mask-image: -webkit-radial-gradient(white, black);
-    mask-image: radial-gradient(white, black);
     min-height: 460px;
     display: flex;
     flex-direction: column;
@@ -939,10 +933,9 @@ body {
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     isolation: isolate;
-    -webkit-mask-image: -webkit-radial-gradient(white, black);
-    mask-image: radial-gradient(white, black);
     transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
         opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.85s cubic-bezier(0.22, 1, 0.36, 1),
         box-shadow 0.6s ease;
     will-change: transform, opacity;
 

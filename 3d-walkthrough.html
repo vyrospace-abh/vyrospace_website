@@ -4,35 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Immersive 3D Walkthrough Services | Virtual Tours — VYROSPACE</title>
+    <title>Walkthrough Services | Interactive Virtual Tours — VYROSPACE</title>
     <meta name="description"
-        content="Experience your projects before they exist with immersive 3D walkthroughs by VYROSPACE. Interactive spatial storytelling and cinematic virtual tours for architecture, real estate, and hospitality worldwide.">
+        content="Experience your projects before they exist with immersive walkthroughs by VYROSPACE. Interactive spatial storytelling and cinematic virtual tours for architecture, real estate, and hospitality worldwide.">
     <link rel="canonical" href="https://vyrospace.com/3d-walkthrough.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="steelform.css">
+    <link rel="stylesheet" href="steelform-pages.css">
+    <!-- Preload hero poster for instant paint -->
+    <link rel="preload" href="web_images/walkthrough_poster.webp" as="image" type="image/webp">
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="vyro_main_png.png">
     <link rel="icon" type="image/png" sizes="16x16" href="vyro_main_png.png">
     <link rel="apple-touch-icon" sizes="180x180" href="vyro_main_png.png">
-    <meta name="msapplication-TileColor" content="#ff6500">
-    <meta name="theme-color" content="#0b192c">
+    <meta name="theme-color" content="#212223">
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://vyrospace.com/3d-walkthrough.html">
-    <meta property="og:title" content="Immersive 3D Walkthrough Services | VYROSPACE">
+    <meta property="og:title" content="Walkthrough Services | VYROSPACE">
     <meta property="og:description" content="Interactive spatial storytelling and cinematic virtual tours for architecture, real estate, and hospitality. Step inside your vision before it exists.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=85">
+    <meta property="og:image" content="https://vyrospace.com/generated%20image/Exterior%203d%20renders/hf_20260221_123254_e76dc5b9-0c51-4465-aec0-39c0541b2e60.png">
     <meta property="og:site_name" content="VYROSPACE">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://vyrospace.com/3d-walkthrough.html">
-    <meta name="twitter:title" content="Immersive 3D Walkthrough Services | VYROSPACE">
+    <meta name="twitter:title" content="Walkthrough Services | VYROSPACE">
     <meta name="twitter:description" content="Interactive spatial storytelling and cinematic virtual tours for architecture and real estate.">
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=85">
+    <meta name="twitter:image" content="https://vyrospace.com/generated%20image/Exterior%203d%20renders/hf_20260221_123254_e76dc5b9-0c51-4465-aec0-39c0541b2e60.png">
     <!-- Google Search -->
     <meta name="google" content="notranslate">
     <!-- Mobile Web App -->
@@ -134,117 +136,131 @@
     "@type": "VideoObject",
     "name": "VYROSPACE 3D Walkthrough Demo",
     "description": "Immersive 3D walkthrough demonstration showcasing architectural visualization capabilities",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=85",
+    "thumbnailUrl": "https://vyrospace.com/generated%20image/Exterior%203d%20renders/hf_20260221_123254_e76dc5b9-0c51-4465-aec0-39c0541b2e60.png",
     "uploadDate": "2026-02-18",
     "duration": "PT2M"
 }
     </script>
 
-    <!-- ===== NAVIGATION ===== -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo"><img src="vyro_main_png.png" alt="VYROSPACE" class="nav-logo-img"></a>
-            <div class="nav-menu" id="navMenu">
-                <ul class="nav-links">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li class="nav-dropdown">
-                        <a href="#" class="nav-link nav-link-dropdown">Services
-                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2.5">
-                                <polyline points="6 9 12 15 18 9" />
-                            </svg>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a href="exterior-rendering.html">Exterior 3D Renderings</a>
-                            <a href="interior-visualization.html">Interior 3D Visualization</a>
-                            <a href="product-visualization.html">3D Product Visualization</a>
-                            <a href="3d-walkthrough.html" class="active">3D Walkthrough</a>
-                        </div>
-                    </li>
-                    <li><a href="index.html#works" class="nav-link">Gallery</a></li>
-                    <li><a href="index.html#contact" class="nav-link">Contact Us</a></li>
+    <!-- ===== SCROLL-UP REVEAL FLOATING NAVBAR ===== -->
+    <header class="floating-header" id="floatingNav" aria-label="Main Floating Navigation">
+        <div class="floating-nav-inner">
+            <a href="index.html" class="floating-nav-brand" title="VYROSPACE Home">
+                <img src="vyro_main_trimmed.png" alt="VYROSPACE" class="floating-nav-logo" decoding="async">
+            </a>
+            <nav class="floating-nav-menu" aria-label="Quick links">
+                <ul class="floating-pill-list">
+                    <li><a href="index.html" class="floating-nav-link">HOME</a></li>
+                    <li><a href="index.html#work" class="floating-nav-link">WORK</a></li>
+                    <li><a href="index.html#contact" class="floating-nav-link">CONTACT</a></li>
                 </ul>
+            </nav>
+            <div class="floating-nav-action">
+                <a href="index.html#contact" class="floating-nav-cta">START A PROJECT</a>
             </div>
-            <a href="index.html#contact" class="nav-cta-btn">Get a Quote</a>
-            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-                <span></span><span></span><span></span>
-            </button>
         </div>
-    </nav>
+    </header>
 
-    <!-- ===== HERO SECTION ===== -->
-    <section class="hero service-hero" id="hero">
-        <div class="hero-video-bg">
-            <video autoplay muted loop playsinline class="hero-bg-img">
-                <source src="hf_20260218_150059_e7d3cd63-dfe4-425d-a7bb-986e0fa27bad.mp4" type="video/mp4">
+    <!-- ===== HERO SECTION CONTAINER ===== -->
+    <div class="steelform-container">
+        <section class="hero-stadium service-hero-stadium" id="hero">
+            <!-- Background Video (Optimized 2.2MB faststart with poster) -->
+            <video autoplay muted loop playsinline preload="metadata" class="hero-video-bg service-hero-bg" poster="web_images/walkthrough_poster.webp">
+                <source src="web_images/walkthrough_hero_ultrafast.mp4" type="video/mp4">
             </video>
-            <div class="hero-overlay"></div>
-        </div>
 
-        <div class="hero-content">
-            <div class="hero-breadcrumb">
-                <a href="index.html">Home</a>
-                <span>/</span>
-                <span>3D Walkthrough</span>
+            <!-- Navigation -->
+            <nav class="hero-nav">
+                <a href="index.html" class="nav-brand" title="VYROSPACE Home">
+                    <img src="vyro_main_trimmed.png" alt="VYROSPACE" class="nav-brand-img" decoding="async">
+                </a>
+
+                <ul class="nav-pill-menu" id="navPillMenu">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="index.html#work">WORK</a></li>
+                    <li><a href="index.html#contact">CONTACT</a></li>
+                </ul>
+
+                <div class="nav-contact-action">
+                    <a href="index.html#contact" class="nav-cta-pill">START A PROJECT</a>
+                    <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation">&#9776;</button>
+                </div>
+            </nav>
+
+            <!-- Hero Middle Content -->
+            <div class="service-hero-middle">
+                <div class="hero-breadcrumb">
+                    <a href="index.html">HOME</a>
+                    <span class="bc-sep">/</span>
+                    <span>WALKTHROUGH SERVICES</span>
+                </div>
+                <h1 class="service-hero-title">3D WALKTHROUGH SERVICES</h1>
+                <p class="service-hero-tagline">STEP INSIDE YOUR VISION. EXPLORE EVERY CORNER IN REAL-TIME.</p>
             </div>
-            <h1 class="hero-title">Immersive 3D Walkthrough Services</h1>
-            <p class="hero-tagline">Step inside your vision. Explore every corner in real-time.</p>
-            <p class="hero-desc">Move beyond static images. Our 3D walkthroughs offer a completely immersive experience,
-                allowing you to navigate through spaces with cinematic fluidity and interactive control. Experience the
-                scale, flow, and atmosphere of your design as if you were already there.</p>
-            <div class="hero-cta-row">
-                <a href="#services-overview" class="btn btn-outline-hero">Experience the Motion</a>
+
+            <!-- Hero Bottom Row -->
+            <div class="service-hero-bottom">
+                <p class="service-hero-desc">Move beyond static images. Our 3D walkthroughs offer a completely immersive experience, allowing you to navigate through spaces with cinematic fluidity and interactive control. Experience the scale, flow, and atmosphere of your design as if you were already there.</p>
+                <div class="service-hero-actions">
+                    <a href="#services-overview" class="btn-pill btn-pill-white">EXPLORE SERVICES</a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
+
+    <!-- ===== STICKY CONTACT ===== -->
+    <a href="index.html#contact" class="sticky-cta" id="stickyCta" aria-label="Start a Project">
+        <span class="sticky-cta-text">START A PROJECT</span>
+    </a>
 
     <!-- ===== GALLERY SHOWCASE — Full Width ===== -->
     <section class="sp-showcase">
         <div class="container">
             <div class="sp-showcase-header">
+                <span class="section-num">01 &mdash; SHOWCASE</span>
                 <h2 class="section-heading section-heading-center">Cinematic Spatial Journeys</h2>
                 <p class="sp-showcase-subtitle">Engage your audience with interactive storytelling — we create virtual
                     experiences that feel deeply personal and incredibly real.</p>
             </div>
             <div class="sp-showcase-grid">
                 <div class="sp-showcase-item sp-showcase-wide reveal-item">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1000&q=85"
-                        alt="Immersive Exterior Flythrough" loading="lazy">
+                    <img src="generated image/Exterior 3d renders/hf_20260221_123254_e76dc5b9-0c51-4465-aec0-39c0541b2e60.webp"
+                        alt="Architectural Walkthrough" loading="lazy" decoding="async">
                     <div class="sp-showcase-overlay">
-                        <span class="sp-showcase-tag">Cinematic</span>
-                        <h3>Estate Flythrough Tour</h3>
+                        <span class="sp-showcase-tag">Walkthrough</span>
+                        <h3>Architectural Visualization</h3>
                     </div>
                 </div>
                 <div class="sp-showcase-item reveal-item">
-                    <img src="https://images.unsplash.com/photo-1628744276520-63082f13e61c?w=600&q=85"
-                        alt="Interactive Living Room" loading="lazy">
+                    <img src="generated image/Exterior 3d renders/hf_20260221_121016_e4395e83-52bc-44e2-ba23-70b69412b3ac.webp"
+                        alt="3D Walkthrough" loading="lazy" decoding="async">
                     <div class="sp-showcase-overlay">
-                        <span class="sp-showcase-tag">Interactive</span>
-                        <h3>Living Area Exploration</h3>
+                        <span class="sp-showcase-tag">Walkthrough</span>
+                        <h3>Spatial Walkthrough</h3>
                     </div>
                 </div>
                 <div class="sp-showcase-item reveal-item">
-                    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&q=85"
-                        alt="Interactive Office Hub" loading="lazy">
+                    <img src="generated image/Exterior 3d renders/hf_20260221_121513_303f53cf-b83a-4855-addb-8e6ac72d83f4.webp"
+                        alt="Cinematic Tour" loading="lazy" decoding="async">
                     <div class="sp-showcase-overlay">
-                        <span class="sp-showcase-tag">Spatial Flow</span>
-                        <h3>Modern Office Walkthrough</h3>
+                        <span class="sp-showcase-tag">Animation</span>
+                        <h3>Cinematic Tour</h3>
                     </div>
                 </div>
                 <div class="sp-showcase-item reveal-item">
-                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=600&q=85"
-                        alt="360 Kitchen View" loading="lazy">
+                    <img src="generated image/Exterior 3d renders/hf_20260221_115943_a112597f-3e44-4883-919c-834eb1b8e843.webp"
+                        alt="360° View" loading="lazy" decoding="async">
                     <div class="sp-showcase-overlay">
-                        <span class="sp-showcase-tag">360° View</span>
-                        <h3>Gourmet Kitchen Panorama</h3>
+                        <span class="sp-showcase-tag">360°</span>
+                        <h3>Interactive 360°</h3>
                     </div>
                 </div>
                 <div class="sp-showcase-item sp-showcase-wide reveal-item">
-                    <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=1000&q=85"
-                        alt="Resort Virtual Tour" loading="lazy">
+                    <img src="generated image/Exterior 3d renders/hf_20260221_113256_a02691ce-7f8d-4e31-898c-9289a96d7711.webp"
+                        alt="Resort Walkthrough" loading="lazy" decoding="async">
                     <div class="sp-showcase-overlay">
-                        <span class="sp-showcase-tag">Immersive</span>
-                        <h3>Resort Grounds Walkthrough</h3>
+                        <span class="sp-showcase-tag">Hospitality</span>
+                        <h3>Resort Walkthrough</h3>
                     </div>
                 </div>
             </div>
@@ -256,6 +272,7 @@
         <div class="container">
             <div class="sp-detail-block reveal-item">
                 <div class="sp-detail-text">
+                    <span class="section-num">02 &mdash; OVERVIEW</span>
                     <h2 class="section-heading">Why 3D Walkthroughs?</h2>
                     <p>Static renders tell a story from a fixed point. Our 3D walkthroughs let you write your own story.
                         By introducing movement and interactivity, we allow stakeholders to understand the spatial
@@ -268,13 +285,14 @@
                         project long before construction begins.</p>
                 </div>
                 <div class="sp-detail-image">
-                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=85"
-                        alt="Immersive Spatial Design" loading="lazy">
+                    <img src="generated image/Exterior 3d renders/hf_20260221_122519_06183a91-9ae4-438c-ad86-8a1e2486ff02.webp"
+                        alt="Immersive Spatial Design" loading="lazy" decoding="async">
                 </div>
             </div>
 
             <div class="sp-detail-block sp-detail-reverse reveal-item">
                 <div class="sp-detail-text">
+                    <span class="section-num">03 &mdash; MOTION</span>
                     <h2 class="section-heading">Our Immersive Motion Approach</h2>
                     <p>We push the limits of digital exploration by focusing on how movement influences perception:</p>
                     <ul class="sp-feature-list">
@@ -298,8 +316,8 @@
                     </ul>
                 </div>
                 <div class="sp-detail-image">
-                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=85"
-                        alt="Dynamic Architectural Flow" loading="lazy">
+                    <img src="generated image/Exterior 3d renders/hf_20260221_115943_a112597f-3e44-4883-919c-834eb1b8e843.webp"
+                        alt="Dynamic Architectural Flow" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>
@@ -308,79 +326,81 @@
     <!-- ===== UNIQUE FEATURES — Cards ===== -->
     <section class="sp-services-types">
         <div class="container">
-            <h2 class="section-heading section-heading-center">Interactive Experience Features</h2>
+            <div style="text-align: center;">
+                <span class="section-num">04 &mdash; CAPABILITIES</span>
+                <h2 class="section-heading section-heading-center">Interactive Experience Features</h2>
+            </div>
             <p class="sp-services-intro">Our walkthroughs go beyond video, offering features that invite deeper
                 engagement.</p>
             <div class="sp-types-grid">
                 <div class="sp-type-card reveal-item">
                     <div class="sp-type-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.2">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.6">
                             <circle cx="12" cy="12" r="10" />
                             <polyline points="12 6 12 12 16 14" />
                         </svg>
                     </div>
                     <h3>Time-of-Day Simulation</h3>
                     <p>Experience how the interior mood shifts from the bright energy of midday to the warm, amber glow
-                        of sunset within the same interactive session.</p>
+                        of sunset with real-time lighting adjustments.</p>
                 </div>
                 <div class="sp-type-card reveal-item">
                     <div class="sp-type-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.2">
-                            <path
-                                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.6">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                            <circle cx="8.5" cy="8.5" r="1.5" />
+                            <polyline points="21 15 16 10 5 21" />
+                        </svg>
+                    </div>
+                    <h3>Material Switching (Configurator)</h3>
+                    <p>Change wall finishes, floor tiles, countertop stones, and cabinetry colors on the fly to help
+                        clients make confident design decisions instantly.</p>
+                </div>
+                <div class="sp-type-card reveal-item">
+                    <div class="sp-type-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.6">
+                            <path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                    </div>
+                    <h3>Interactive Floor Plans</h3>
+                    <p>An interactive radar map showing the user's current location and camera orientation, allowing
+                        instant teleportation to any room.</p>
+                </div>
+                <div class="sp-type-card reveal-item">
+                    <div class="sp-type-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.6">
+                            <polygon points="5 3 19 12 5 21 5 3" />
+                        </svg>
+                    </div>
+                    <h3>Guided Cinematic Modes</h3>
+                    <p>Offer passive viewers a curated, film-like experience that automatically tours the key highlights
+                        of the project with smooth narration.</p>
+                </div>
+                <div class="sp-type-card reveal-item">
+                    <div class="sp-type-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.6">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
                             <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
                             <line x1="12" y1="22.08" x2="12" y2="12" />
                         </svg>
                     </div>
-                    <h3>Interactive Material Swaps</h3>
-                    <p>Switch between different floor finishes, wall colors, or furniture styles on the fly to see how
-                        design choices impact the spatial feel instantly.</p>
+                    <h3>VR Ready Compatibility</h3>
+                    <p>Designed to work seamlessly on Oculus, HTC Vive, and Apple Vision Pro, allowing buyers to step
+                        physically inside the architecture.</p>
                 </div>
                 <div class="sp-type-card reveal-item">
                     <div class="sp-type-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.2">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                            <circle cx="12" cy="10" r="3" />
-                        </svg>
-                    </div>
-                    <h3>Spatial Teleportation</h3>
-                    <p>Instantly jump between key vantage points—from the rooftop terrace to the basement lounge—using
-                        an intuitive spatial map interface.</p>
-                </div>
-                <div class="sp-type-card reveal-item">
-                    <div class="sp-type-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.2">
-                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                            <circle cx="12" cy="12" r="3" />
-                        </svg>
-                    </div>
-                    <h3>360° Panoramic Hubs</h3>
-                    <p>Stop the motion at any time to enter a high-resolution 360-degree panoramic mode, allowing for a
-                        full circular inspection of any room.</p>
-                </div>
-                <div class="sp-type-card reveal-item">
-                    <div class="sp-type-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.2">
-                            <path d="M12 2v20" />
-                            <path d="m17 5-5-3-5 3v14l5 3 5-3Z" />
-                        </svg>
-                    </div>
-                    <h3>Immersive Soundscapes</h3>
-                    <p>Enhance the visual journey with spatial audio—the soft hum of a city, the rustle of leaves, or
-                        the acoustic signature of a large hall.</p>
-                </div>
-                <div class="sp-type-card reveal-item">
-                    <div class="sp-type-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.2">
-                            <rect width="18" height="18" x="3" y="3" rx="2" />
-                            <path d="M15 3v18" />
-                            <path d="m8 8 3 3-3 3" />
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.6">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                            <line x1="8" y1="21" x2="16" y2="21" />
+                            <line x1="12" y1="17" x2="12" y2="21" />
                         </svg>
                     </div>
                     <h3>Dollhouse Overview</h3>
@@ -396,6 +416,7 @@
         <div class="container">
             <div class="sp-detail-block reveal-item">
                 <div class="sp-detail-text">
+                    <span class="section-num">05 &mdash; PERFORMANCE</span>
                     <h2 class="section-heading">The Standard of Immersive Motion</h2>
                     <p>Our walkthroughs are designed to provide a seamless, high-performance experience on any device:
                     </p>
@@ -409,8 +430,8 @@
                     </ul>
                 </div>
                 <div class="sp-detail-image">
-                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252723f?w=800&q=85"
-                        alt="Walkthrough Performance Features" loading="lazy">
+                    <img src="generated image/Exterior 3d renders/hf_20260221_121016_e4395e83-52bc-44e2-ba23-70b69412b3ac.webp"
+                        alt="Walkthrough Performance Features" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>
@@ -420,87 +441,58 @@
     <section class="cta-banner">
         <div class="container">
             <div class="cta-banner-content">
+                <span class="section-num">LET'S COLLABORATE</span>
                 <h2 class="section-heading">Start Your Spatial<br>Journey Today</h2>
                 <p>Don't just show your design—let your audience experience it with immersive 3D walkthroughs. Fill in
                     the form or contact us via email at
                     <a href="mailto:info@vyrospace.com" class="sp-inline-link">info@vyrospace.com</a>.
                 </p>
                 <div class="cta-banner-actions">
-                    <a href="index.html#contact" class="btn btn-primary">Request a Walkthrough
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <line x1="5" y1="12" x2="19" y2="12" />
-                            <polyline points="12 5 19 12 12 19" />
-                        </svg>
-                    </a>
-                    <a href="index.html#contact" class="btn btn-outline-hero">View Live Demo</a>
+                    <a href="index.html#contact" class="btn-pill btn-pill-bronze">START A PROJECT &rarr;</a>
+                    <a href="index.html#contact" class="btn-pill btn-pill-outline-white">VIEW LIVE DEMO</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
+    <!-- ===== FOOTER (minimal) ===== -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col footer-brand">
-                    <a href="index.html" class="nav-logo"><img src="vyro_main_png.png" alt="VYROSPACE"
-                            class="nav-logo-img"></a>
-                    <p>Premium 3D visualization and architectural rendering studio. Crafting immersive digital
-                        experiences that push the boundaries of visual storytelling.</p>
-                    <div class="footer-socials">
-                        <a href="https://www.instagram.com/vyrospace_" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.5">
-                                <rect width="20" height="20" x="2" y="2" rx="5" />
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="LinkedIn">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.5">
-                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
-                                <rect width="4" height="12" x="2" y="9" />
-                                <circle cx="4" cy="4" r="2" />
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="YouTube">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.5">
-                                <path
-                                    d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
-                                <path d="m10 15 5-3-5-3z" />
-                            </svg>
-                        </a>
-                    </div>
+            <div class="footer-inner">
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/vyrospace_" target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram" class="social-btn social-btn-instagram">
+                        <img src="steelform_assets/icon_instagram_official.svg" alt="Instagram" class="footer-social-icon" decoding="async">
+                    </a>
+                    <a href="https://www.linkedin.com/company/vyrospace/about/?viewAsMember=true" target="_blank"
+                        rel="noopener noreferrer" aria-label="LinkedIn" class="social-btn social-btn-linkedin">
+                        <img src="steelform_assets/icon_linkedin_official.svg" alt="LinkedIn" class="footer-social-icon" decoding="async">
+                    </a>
+                    <a href="#" aria-label="YouTube" class="social-btn social-btn-youtube">
+                        <img src="steelform_assets/icon_youtube_official.svg" alt="YouTube" class="footer-social-icon" decoding="async">
+                    </a>
+                    <a href="https://wa.me/918460385958" target="_blank" rel="noopener noreferrer"
+                        aria-label="WhatsApp" class="social-btn social-btn-whatsapp" title="Chat on WhatsApp (+91 84603 85958)">
+                        <img src="steelform_assets/icon_whatsapp_official.svg" alt="WhatsApp" class="footer-social-icon" decoding="async">
+                    </a>
                 </div>
-                <div class="footer-col">
-                    <h4>Services</h4>
-                    <a href="exterior-rendering.html">Exterior 3D Renderings</a>
-                    <a href="interior-visualization.html">Interior 3D Visualization</a>
-                    <a href="product-visualization.html">3D Product Visualization</a>
-                    <a href="3d-walkthrough.html">3D Walkthrough</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Company</h4>
-                    <a href="#">About</a>
-                    <a href="#">Career</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <a href="mailto:info@vyrospace.com">info@vyrospace.com</a>
-                    <a href="#">India</a>
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo" aria-label="VYROSPACE Home">
+                        <img src="vyro_main_obsidian.png" alt="VYROSPACE" class="footer-logo-img" decoding="async">
+                    </a>
+                    <p>Photorealistic 3D visualization.<br>India &mdash; working worldwide.</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 VYROSPACE. All rights reserved.</p>
-                <a href="privacy-policy.html">Terms of Use &amp; Privacy Policy</a>
+                <p>&copy; 2026 VYROSPACE</p>
+                <a href="privacy-policy.html">Privacy</a>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script src="motion.js"></script>
+    <script src="steelform.js"></script>
 </body>
 
 </html>

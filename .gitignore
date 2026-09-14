@@ -1,0 +1,40 @@
+# Binaries & Installers
+*.exe
+Docker Desktop Installer.exe
+cloudflared.exe
+
+# Temporary Chrome / Dev profiles
+chrome_temp/
+chrome_temp2/
+chrome_temp3/
+.claude/
+
+# Temporary test captures & debug files
+test_glass.html
+Screenshot_1.*
+hero_after_fix.png
+hero_cold_start.png
+hero_compressed_test.png
+hero_compressed_test2.png
+hero_snap.png
+subpage_exterior.png
+cursor*.png
+cursor*.webp
+vyrospace_clean_*.png
+vyrospace_fixed_*.png
+vyrospace_redesign_*.png
+vyrospace_updated_*.png
+vyrospace_video_*.png
+
+# External raw source folders
+resot_prj/
+color_palets/
+
+# Large raw video footage & 3D source files (> 30MB or uncompressed)
+web_images/Architectural_animation_*.mp4
+web_images/seamless_archviz_*.mp4
+web_images/contemporary*.mp4
+web_images/can_you_just_*.mp4
+web_images/Playblast*
+web_images/maya.ma
+web_images/image_seq/

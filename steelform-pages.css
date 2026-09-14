@@ -1,0 +1,1062 @@
+/* ==========================================================================
+   VYROSPACE - STEELFORM SUBPAGE EXTENSION (steelform-pages.css)
+   Unifies Exterior, Interior, Walkthrough, Product Visualization & Privacy Policy
+   with the signature Steelform Luxury Design System:
+   - Palette: #212223 (Obsidian), #844F23 (Warm Bronze), #F8F7F4 (Canvas), Pure White
+   - Typography: Urbanist (Display & Headings), Inter (Body)
+   - Radius: Stadium 40px, Card 20-28px, Pill 999px
+   - Frosted Glass, Specular Highlights, 3D Elevation Grounding Shadows
+   ========================================================================== */
+
+/* ===================================================
+   1. SERVICE HERO (Stadium Frame & Glass Aesthetics)
+   =================================================== */
+.service-hero-stadium {
+    position: relative;
+    width: 100%;
+    min-height: 640px;
+    border-radius: var(--radius-stadium);
+    background-color: #191A1B;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 38px 50px 50px;
+    color: var(--color-white);
+
+    /* Specular glass rim */
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-top: 1.5px solid rgba(255, 255, 255, 0.55);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+
+    /* 3D Glass Elevation & Grounding Shadow System */
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.25),
+        0 4px 0 0 rgba(255, 255, 255, 0.25),
+        0 8px 0 0 rgba(210, 214, 222, 0.18),
+        0 12px 1px 0 rgba(140, 146, 160, 0.12),
+        0 16px 24px -2px rgba(8, 10, 14, 0.48),
+        0 30px 55px -6px rgba(8, 10, 14, 0.54),
+        0 52px 115px -10px rgba(6, 8, 12, 0.62),
+        0 75px 150px -15px rgba(0, 0, 0, 0.42),
+        inset 0 2.5px 5px -1px rgba(255, 255, 255, 0.7),
+        inset 0 0 32px rgba(255, 255, 255, 0.08),
+        inset 0 -16px 36px -6px rgba(0, 0, 0, 0.6);
+}
+
+.service-hero-bg {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    border-radius: inherit !important;
+    z-index: 0 !important;
+    pointer-events: none;
+    filter: brightness(0.60) contrast(1.05);
+}
+
+.service-hero-stadium::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+            rgba(20, 20, 22, 0.65) 0%,
+            rgba(20, 20, 22, 0.35) 45%,
+            rgba(20, 20, 22, 0.85) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.service-hero-stadium::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-stadium);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-top: 1.5px solid rgba(255, 255, 255, 0.65);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow:
+        inset 0 1.5px 3px rgba(255, 255, 255, 0.6),
+        inset 0 -4px 14px rgba(0, 0, 0, 0.45);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.service-hero-stadium>*:not(.service-hero-bg) {
+    position: relative;
+    z-index: 3;
+}
+
+/* Service Hero Middle Content */
+.service-hero-middle {
+    margin-top: 44px;
+    margin-bottom: auto;
+    max-width: 1000px;
+}
+
+.hero-breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-primary);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 22px;
+    background: rgba(25, 28, 34, 0.65);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: 7px 20px;
+    border-radius: var(--radius-pill);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-top: 1.5px solid rgba(255, 255, 255, 0.55);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.4);
+    width: fit-content;
+}
+
+.hero-breadcrumb a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+.hero-breadcrumb a:hover {
+    color: #FFFFFF;
+}
+
+.hero-breadcrumb .bc-sep,
+.hero-breadcrumb span:nth-child(2) {
+    color: var(--color-bronze-light);
+    font-weight: 800;
+}
+
+.hero-breadcrumb span:last-child {
+    color: #FFFFFF;
+    font-weight: 800;
+}
+
+.service-hero-title {
+    font-family: var(--font-primary);
+    font-size: clamp(2.4rem, 5.2vw, 4.6rem);
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin-bottom: 14px;
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+}
+
+.service-hero-tagline {
+    font-family: var(--font-primary);
+    font-size: clamp(1rem, 1.7vw, 1.35rem);
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: uppercase;
+    line-height: 1.4;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Service Hero Bottom Row */
+.service-hero-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.service-hero-desc {
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.84);
+    max-width: 680px;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.service-hero-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+.service-hero-actions .btn-pill {
+    white-space: nowrap;
+    letter-spacing: 1.5px;
+}
+
+/* ===================================================
+   2. BUTTON UTILITIES (Steelform Bronze & Pill Styles)
+   =================================================== */
+.btn-pill-bronze {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: var(--color-bronze);
+    border: 1px solid var(--color-bronze-light);
+    color: #FFFFFF !important;
+    font-family: var(--font-primary);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 8px 24px rgba(132, 79, 35, 0.35);
+    transition: var(--transition-smooth);
+}
+
+.btn-pill-bronze:hover {
+    background: var(--color-bronze-light);
+    color: #FFFFFF !important;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(132, 79, 35, 0.5);
+}
+
+.btn-pill-outline-bronze {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 26px;
+    background: transparent;
+    border: 1.5px solid var(--color-bronze);
+    color: var(--color-bronze) !important;
+    font-family: var(--font-primary);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: var(--radius-pill);
+    transition: var(--transition-smooth);
+}
+
+.btn-pill-outline-bronze:hover {
+    background: var(--color-bronze);
+    color: #FFFFFF !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(132, 79, 35, 0.3);
+}
+
+/* ===================================================
+   3. GALLERY SHOWCASE SECTION (.sp-showcase)
+   =================================================== */
+.sp-showcase {
+    padding: 90px 0 110px;
+    background-color: var(--bg-canvas);
+    position: relative;
+}
+
+.sp-showcase-header {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.sp-showcase-subtitle {
+    font-family: var(--font-secondary);
+    color: var(--color-grey);
+    font-size: 1.05rem;
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.75;
+}
+
+.sp-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    grid-auto-rows: 340px;
+}
+
+.sp-showcase-item {
+    position: relative;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    background: #191A1B;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-top: 1.5px solid rgba(255, 255, 255, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.22),
+        0 4px 0 0 rgba(255, 255, 255, 0.25),
+        0 8px 0 0 rgba(210, 214, 222, 0.18),
+        0 12px 1px 0 rgba(140, 146, 160, 0.10),
+        0 16px 24px -2px rgba(8, 10, 14, 0.48),
+        0 30px 55px -6px rgba(8, 10, 14, 0.54),
+        0 52px 110px -10px rgba(6, 8, 12, 0.60),
+        inset 0 2.5px 5px -1px rgba(255, 255, 255, 0.75),
+        inset 0 -14px 30px -4px rgba(0, 0, 0, 0.55);
+    transition: var(--transition-smooth);
+    isolation: isolate;
+}
+
+/* Crisp 3D Glass Specular Rim */
+.sp-showcase-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-top: 1.5px solid rgba(255, 255, 255, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: inset 0 1.5px 3px rgba(255, 255, 255, 0.7), inset 0 -3px 8px rgba(0, 0, 0, 0.45);
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* Frosted glass glare overlay */
+.sp-showcase-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.18) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.sp-showcase-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.65s ease;
+}
+
+.sp-showcase-item:hover {
+    transform: translateY(-8px);
+    border-color: var(--color-bronze);
+    box-shadow:
+        0 0 0 1px var(--color-bronze),
+        0 6px 0 0 rgba(132, 79, 35, 0.35),
+        0 22px 42px -2px rgba(8, 10, 14, 0.55),
+        0 44px 80px -6px rgba(8, 10, 14, 0.62),
+        0 76px 145px -10px rgba(6, 8, 12, 0.70),
+        inset 0 2.5px 5px -1px rgba(255, 255, 255, 0.9);
+}
+
+.sp-showcase-item:hover img {
+    transform: scale(1.06);
+    filter: brightness(0.85);
+}
+
+.sp-showcase-overlay {
+    position: absolute;
+    inset: 0;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(0deg, rgba(33, 34, 35, 0.92) 0%, rgba(33, 34, 35, 0.4) 50%, transparent 100%);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 4;
+}
+
+.sp-showcase-item:hover .sp-showcase-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sp-showcase-tag {
+    display: inline-block;
+    font-family: var(--font-primary);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    background: var(--color-bronze);
+    padding: 4px 12px;
+    border-radius: var(--radius-pill);
+    width: fit-content;
+    margin-bottom: 8px;
+    box-shadow: 0 4px 12px rgba(132, 79, 35, 0.3);
+}
+
+.sp-showcase-overlay h3 {
+    font-family: var(--font-primary);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sp-showcase-wide {
+    grid-column: span 2;
+}
+
+/* ===================================================
+   4. DETAIL & SERVICE OVERVIEW BLOCKS (.sp-detail-section)
+   =================================================== */
+.sp-detail-section {
+    padding: 90px 0 100px;
+    background-color: var(--bg-canvas);
+}
+
+.sp-detail-block {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 68px;
+    align-items: center;
+    margin-bottom: 104px;
+}
+
+.sp-detail-block:last-child {
+    margin-bottom: 0;
+}
+
+.sp-detail-reverse {
+    grid-template-columns: 0.95fr 1.05fr;
+}
+
+.sp-detail-reverse .sp-detail-text {
+    order: 2;
+}
+
+.sp-detail-reverse .sp-detail-image {
+    order: 1;
+}
+
+.sp-detail-text h2 {
+    margin-bottom: 24px;
+}
+
+.sp-detail-text p {
+    font-family: var(--font-secondary);
+    color: #4A4B4D;
+    font-size: 1.02rem;
+    line-height: 1.85;
+    margin-bottom: 18px;
+}
+
+.sp-detail-image {
+    position: relative;
+    border-radius: 28px;
+    overflow: hidden;
+    background: #191A1B;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-top: 1.5px solid rgba(255, 255, 255, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.22),
+        0 4px 0 0 rgba(255, 255, 255, 0.25),
+        0 8px 0 0 rgba(210, 214, 222, 0.18),
+        0 12px 1px 0 rgba(140, 146, 160, 0.10),
+        0 16px 24px -2px rgba(8, 10, 14, 0.48),
+        0 30px 55px -6px rgba(8, 10, 14, 0.54),
+        0 52px 110px -10px rgba(6, 8, 12, 0.60),
+        inset 0 2.5px 5px -1px rgba(255, 255, 255, 0.75),
+        inset 0 -14px 30px -4px rgba(0, 0, 0, 0.55);
+    transition: var(--transition-smooth);
+    isolation: isolate;
+}
+
+/* Crisp 3D Glass Specular Rim */
+.sp-detail-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-top: 1.5px solid rgba(255, 255, 255, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: inset 0 1.5px 3px rgba(255, 255, 255, 0.7), inset 0 -3px 8px rgba(0, 0, 0, 0.45);
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* Frosted glass glare overlay */
+.sp-detail-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.18) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.sp-detail-image img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    display: block;
+    border-radius: inherit;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sp-detail-image:hover {
+    transform: translateY(-8px);
+    border-color: var(--color-bronze);
+    box-shadow:
+        0 0 0 1px var(--color-bronze),
+        0 6px 0 0 rgba(132, 79, 35, 0.35),
+        0 22px 42px -2px rgba(8, 10, 14, 0.55),
+        0 44px 80px -6px rgba(8, 10, 14, 0.62),
+        0 76px 145px -10px rgba(6, 8, 12, 0.70),
+        inset 0 2.5px 5px -1px rgba(255, 255, 255, 0.9);
+}
+
+.sp-detail-image:hover img {
+    transform: scale(1.03);
+}
+
+/* Feature List */
+.sp-feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.sp-feature-list li {
+    font-family: var(--font-secondary);
+    color: #4A4B4D;
+    line-height: 1.7;
+    padding-left: 28px;
+    position: relative;
+    font-size: 0.98rem;
+}
+
+.sp-feature-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--color-bronze);
+    box-shadow: 0 0 0 3px rgba(132, 79, 35, 0.15);
+}
+
+.sp-feature-list li strong {
+    font-family: var(--font-primary);
+    color: var(--color-obsidian);
+    font-weight: 700;
+    font-size: 1.02rem;
+}
+
+.sp-feature-list-checked li::before {
+    content: '✓';
+    background: none;
+    box-shadow: none;
+    color: var(--color-bronze);
+    font-size: 1rem;
+    font-weight: 900;
+    top: 2px;
+    width: auto;
+    height: auto;
+    border-radius: 0;
+}
+
+/* ===================================================
+   5. SERVICE TYPES SECTION (.sp-services-types)
+   Obsidian Contrast Section for Dramatic Luxury Rhythm
+   =================================================== */
+.sp-services-types {
+    padding: 100px 0 110px;
+    background-color: #1F2022;
+    color: #FFFFFF;
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sp-services-types .section-num {
+    color: var(--color-bronze-light);
+}
+
+.sp-services-types .section-heading {
+    color: #FFFFFF;
+}
+
+.sp-services-intro {
+    text-align: center;
+    color: var(--color-grey-light);
+    font-size: 1.05rem;
+    max-width: 660px;
+    margin: 0 auto 60px;
+    line-height: 1.8;
+}
+
+.sp-types-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.sp-type-card {
+    position: relative;
+    background: rgba(39, 40, 42, 0.82);
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-top: 1.5px solid rgba(255, 255, 255, 0.45);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-card);
+    padding: 42px 34px;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.12),
+        0 4px 0 0 rgba(255, 255, 255, 0.16),
+        0 8px 0 0 rgba(210, 214, 222, 0.08),
+        0 14px 28px -4px rgba(8, 10, 14, 0.45),
+        0 28px 56px -8px rgba(8, 10, 14, 0.50),
+        0 48px 90px -12px rgba(6, 8, 12, 0.55),
+        inset 0 2.5px 5px -1px rgba(255, 255, 255, 0.45),
+        inset 0 -14px 30px -4px rgba(0, 0, 0, 0.55);
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* Frosted glass specular rim */
+.sp-type-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-top: 1.5px solid rgba(255, 255, 255, 0.55);
+    box-shadow: inset 0 1.5px 3px rgba(255, 255, 255, 0.5), inset 0 -3px 8px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Frosted glass surface texture */
+.sp-type-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.sp-type-card>* {
+    position: relative;
+    z-index: 3;
+}
+
+.sp-type-card:hover {
+    background: rgba(46, 47, 50, 0.92);
+    border-color: var(--color-bronze);
+    transform: translateY(-8px);
+    box-shadow:
+        0 0 0 1px var(--color-bronze),
+        0 6px 0 0 rgba(132, 79, 35, 0.35),
+        0 20px 36px -2px rgba(8, 10, 14, 0.58),
+        0 40px 75px -6px rgba(8, 10, 14, 0.65),
+        0 70px 130px -10px rgba(6, 8, 12, 0.72),
+        inset 0 2.5px 5px -1px rgba(255, 255, 255, 0.6);
+}
+
+.sp-type-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    background: rgba(132, 79, 35, 0.22);
+    border: 1px solid rgba(132, 79, 35, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #E29B62;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.25), 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: var(--transition-smooth);
+}
+
+.sp-type-card:hover .sp-type-icon {
+    background: var(--color-bronze);
+    border-color: var(--color-bronze-light);
+    color: #FFFFFF;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(132, 79, 35, 0.4);
+}
+
+.sp-type-card h3 {
+    font-family: var(--font-primary);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sp-type-card p {
+    font-family: var(--font-secondary);
+    color: #A5A5A8;
+    font-size: 0.94rem;
+    line-height: 1.7;
+}
+
+/* ===================================================
+   6. FEATURES SECTION (.sp-features-section)
+   =================================================== */
+.sp-features-section {
+    padding: 90px 0 100px;
+    background-color: var(--bg-canvas);
+}
+
+/* ===================================================
+   7. CTA BANNER (.cta-banner)
+   Stadium Rounded Dark Glass Card
+   =================================================== */
+.cta-banner {
+    padding: 70px 0 110px;
+    background: var(--bg-canvas);
+}
+
+.cta-banner-content {
+    position: relative;
+    background: #212223;
+    border-radius: 36px;
+    padding: 72px 48px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-top: 1.5px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.16),
+        0 4px 0 0 rgba(255, 255, 255, 0.18),
+        0 8px 0 0 rgba(210, 214, 222, 0.10),
+        0 16px 32px -4px rgba(0, 0, 0, 0.45),
+        0 32px 64px -8px rgba(0, 0, 0, 0.4),
+        0 54px 100px -12px rgba(0, 0, 0, 0.5),
+        inset 0 2.5px 5px -1px rgba(255, 255, 255, 0.5),
+        inset 0 -14px 30px -4px rgba(0, 0, 0, 0.55);
+    text-align: center;
+    max-width: 960px;
+    margin: 0 auto;
+    color: #FFFFFF;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.cta-banner-content::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 36px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-top: 1.5px solid rgba(255, 255, 255, 0.6);
+    box-shadow: inset 0 1.5px 3px rgba(255, 255, 255, 0.5), inset 0 -3px 8px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+    z-index: 3;
+}
+
+.cta-banner-content::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(132, 79, 35, 0.25) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.cta-banner-content .section-heading {
+    color: #FFFFFF;
+    margin-bottom: 16px;
+}
+
+.cta-banner-content p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.15rem;
+    max-width: 580px;
+    margin: 0 auto 36px;
+    line-height: 1.6;
+}
+
+.cta-banner-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.sp-inline-link {
+    color: #E29B62 !important;
+    text-decoration: underline !important;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+}
+
+.sp-inline-link:hover {
+    color: #FFFFFF !important;
+}
+
+/* ==========================================================================
+   8. PRIVACY POLICY PAGE (.policy-content)
+   ========================================================================== */
+.policy-section {
+    padding: 60px 0 100px;
+}
+
+.policy-content {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 60px 52px;
+    background: #FFFFFF;
+    border-radius: 28px;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-top: 1.5px solid rgba(255, 255, 255, 1);
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.8),
+        0 4px 0 0 rgba(255, 255, 255, 0.6),
+        0 8px 0 0 rgba(210, 214, 222, 0.35),
+        0 14px 28px -4px rgba(8, 10, 14, 0.35),
+        0 28px 56px -8px rgba(8, 10, 14, 0.42),
+        0 48px 90px -12px rgba(6, 8, 12, 0.48),
+        inset 0 2px 4px -1px rgba(255, 255, 255, 0.95);
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* Crisp 3D glass specular rim */
+.policy-content::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: inset 0 1.5px 3px rgba(255, 255, 255, 0.8), inset 0 -3px 8px rgba(0, 0, 0, 0.08);
+    pointer-events: none;
+    z-index: 3;
+}
+
+.policy-content h2 {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-obsidian);
+    margin: 48px 0 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(33, 34, 35, 0.08);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.policy-content h2:first-of-type {
+    margin-top: 0;
+}
+
+.policy-content h3 {
+    font-family: var(--font-primary);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-obsidian);
+    margin: 28px 0 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.policy-content p,
+.policy-content li {
+    font-family: var(--font-secondary);
+    font-size: 0.96rem;
+    line-height: 1.85;
+    color: #4A4B4D;
+    margin-bottom: 16px;
+}
+
+.policy-content ul,
+.policy-content ol {
+    padding-left: 24px;
+    margin-bottom: 20px;
+}
+
+.policy-content li {
+    margin-bottom: 8px;
+}
+
+.policy-content a {
+    color: var(--color-bronze);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+}
+
+.policy-content a:hover {
+    color: var(--color-bronze-light);
+}
+
+.policy-effective-date {
+    font-family: var(--font-primary);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-bronze);
+    margin-bottom: 36px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(33, 34, 35, 0.08);
+}
+
+.policy-content strong {
+    color: var(--color-obsidian);
+    font-weight: 700;
+}
+
+.policy-divider {
+    border: none;
+    border-top: 1px solid rgba(33, 34, 35, 0.08);
+    margin: 56px 0;
+}
+
+/* ===================================================
+   9. RESPONSIVE BREAKPOINTS (Subpages)
+   =================================================== */
+@media (max-width: 1024px) {
+    .sp-showcase-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 300px;
+    }
+
+    .sp-showcase-wide {
+        grid-column: span 2;
+    }
+
+    .sp-detail-block {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-bottom: 72px;
+    }
+
+    .sp-detail-reverse .sp-detail-text {
+        order: 1;
+    }
+
+    .sp-detail-reverse .sp-detail-image {
+        order: 2;
+    }
+
+    .sp-types-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .service-hero-stadium {
+        min-height: 520px;
+        padding: 28px 24px 36px;
+        border-radius: 28px;
+    }
+
+    .service-hero-stadium::after {
+        border-radius: 28px;
+        padding: 14px;
+    }
+
+    .service-hero-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .service-hero-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .service-hero-actions {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .service-hero-actions .btn-pill {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .sp-showcase {
+        padding: 60px 0 80px;
+    }
+
+    .sp-showcase-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 280px;
+        gap: 16px;
+    }
+
+    .sp-showcase-wide {
+        grid-column: span 1;
+    }
+
+    .sp-detail-image img {
+        height: 300px;
+    }
+
+    .sp-types-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-banner-content {
+        padding: 48px 24px;
+        border-radius: 24px;
+    }
+
+    .cta-banner-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .cta-banner-actions .btn-pill-bronze,
+    .cta-banner-actions .btn-pill-outline-white {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .policy-content {
+        padding: 36px 22px;
+        border-radius: 20px;
+    }
+}
+
+@media (max-width: 560px) {
+    .service-hero-stadium {
+        min-height: 480px;
+        padding: 24px 18px 30px;
+    }
+
+    .hero-breadcrumb {
+        font-size: 0.7rem;
+        padding: 5px 12px;
+        letter-spacing: 1px;
+    }
+}
+/* Crisp High-DPI image and icon rendering */
+img, .nav-brand-img, .footer-logo-img, .footer-social-icon, .area-card-bg, .work-card-bg {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: auto;
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}

@@ -4,768 +4,549 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VYROSPACE — 3D Rendering & Architectural Visualization Studio</title>
+    <title>VYROSPACE &mdash; Photorealistic 3D Visualization Studio</title>
     <meta name="description"
-        content="VYROSPACE is a premier 3D rendering and architectural visualization studio. We provide photorealistic exterior renderings, interior visualizations, product renders, and immersive 3D walkthroughs for architects, developers, and product designers worldwide.">
+        content="Vyrospace: Photorealistic 3D visualization for architecture, interiors, products, and brands. We shape spaces before they exist.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="steelform.css">
+    <!-- Preload hero poster for instant paint -->
+    <link rel="preload" href="web_images/hero_poster.webp" as="image" type="image/webp">
     <link rel="canonical" href="https://vyrospace.com/">
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="vyro_main_png.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="vyro_main_png.png">
     <link rel="apple-touch-icon" sizes="180x180" href="vyro_main_png.png">
-    <meta name="msapplication-TileColor" content="#ff6500">
-    <meta name="theme-color" content="#0b192c">
-    <!-- Google Search -->
-    <meta name="google" content="notranslate">
-    <!-- Mobile Web App -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="#0b192c">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    <!-- Open Graph / Facebook -->
+    <meta name="theme-color" content="#212223">
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://vyrospace.com/">
-    <meta property="og:title" content="VYROSPACE — 3D Rendering & Architectural Visualization Studio">
-    <meta property="og:description" content="VYROSPACE is a premier 3D rendering and architectural visualization studio. We provide photorealistic exterior renderings, interior visualizations, product renders, and immersive 3D walkthroughs for architects, developers, and product designers worldwide.">
-    <meta property="og:image" content="https://vyrospace.com/vyro_main_png.png">
-    <meta property="og:site_name" content="VYROSPACE">
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://vyrospace.com/">
-    <meta name="twitter:title" content="VYROSPACE — 3D Rendering & Architectural Visualization Studio">
-    <meta name="twitter:description" content="Premium 3D rendering and architectural visualization studio. Exterior renderings, interior visualizations, product renders, and 3D walkthroughs.">
-    <meta name="twitter:image" content="https://vyrospace.com/vyro_main_png.png">
+    <meta property="og:title" content="VYROSPACE &mdash; We Shape Spaces Before They Exist">
+    <meta property="og:description"
+        content="Photorealistic 3D visualization for architecture, interiors, products &amp; brands.">
+    <meta property="og:image" content="web_images/homepage_image_02.webp">
+    <!-- Always open at top Hero section on refresh, but honor hash navigation like #contact on click -->
+    <script>
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        var isReload = false;
+        try {
+            var navEntries = window.performance && performance.getEntriesByType ? performance.getEntriesByType('navigation') : [];
+            if (navEntries.length > 0 && navEntries[0].type === 'reload') {
+                isReload = true;
+            } else if (window.performance && performance.navigation && performance.navigation.type === 1) {
+                isReload = true;
+            }
+        } catch (e) {}
+
+        if (isReload) {
+            if (window.location.hash) {
+                try { history.replaceState(null, null, window.location.pathname); } catch (e) {}
+            }
+            window.scrollTo(0, 0);
+        } else if (!window.location.hash) {
+            window.scrollTo(0, 0);
+        }
+    </script>
 </head>
 
 <body>
 
-    <!-- ===== STRUCTURED DATA (JSON-LD) ===== -->
-    <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "VYROSPACE",
-    "alternateName": "Vyrospace 3D Visualization Studio",
-    "url": "https://vyrospace.com",
-    "logo": "https://vyrospace.com/vyro_main_png.png",
-    "description": "Premium 3D visualization and architectural rendering studio offering exterior renderings, interior visualizations, product renders, and immersive 3D walkthroughs.",
-    "foundingDate": "2022",
-    "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "IN"
-    },
-    "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "",
-        "contactType": "Customer Service",
-        "email": "info@vyrospace.com",
-        "availableLanguage": ["English"]
-    },
-    "sameAs": [
-        "https://www.instagram.com/vyrospace_",
-        "https://www.linkedin.com/company/vyrospace",
-        "https://www.youtube.com/vyrospace"
-    ],
-    "serviceType": [
-        "3D Exterior Rendering",
-        "3D Interior Visualization",
-        "3D Product Visualization",
-        "3D Architectural Walkthrough",
-        "Architectural Animation",
-        "Virtual Staging"
-    ],
-    "areaServed": "Worldwide"
-}
-    </script>
-
-    <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "VYROSPACE",
-    "url": "https://vyrospace.com",
-    "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://vyrospace.com/?s={search_term_string}",
-        "query-input": "required name=search_term_string"
-    }
-}
-    </script>
-
-    <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-        {
-            "@type": "Question",
-            "name": "What types of 3D rendering services do you provide?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "We provide a comprehensive range of 3D rendering services including exterior and interior 3D renderings, architectural animation, product visualization, 3D modeling, virtual staging, floor plan rendering, 360° virtual tours, and aerial view renderings for both architects and manufacturers."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "Can I request changes or revisions to the renderings after they are completed?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes! Our workflow includes revision rounds. We provide preview images at various stages, allowing you to request changes to materials, lighting, camera angles, and overall composition before final delivery."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "Does your studio offer both interior and exterior 3D rendering?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Absolutely. We specialize in both interior and exterior 3D visualization. Each type requires specific expertise, and our team has deep experience in both areas — from residential interiors to large-scale commercial exteriors."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "How long does it typically take to complete a 3D rendering project?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Timelines depend on complexity. A single exterior rendering typically takes 3-5 business days. Interior scenes usually take 3-7 days. Animations and large-scale projects are quoted individually. We always discuss timelines upfront during project planning."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "What industries need 3D rendering services?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Our services are used across many industries: architecture firms, real estate developers, interior design studios, product manufacturers, furniture companies, branding agencies, and construction companies. Anyone who needs to visualize a concept before it exists benefits from 3D rendering."
-            }
-        }
-    ]
-}
-    </script>
-
-    <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Exterior 3D Rendering",
-    "name": "Exterior 3D Rendering Services",
-    "alternateName": ["Architectural Visualization", "3D Exterior Renders", "Building Renderings"],
-    "description": "Premium exterior 3D rendering services for real estate developers, architects, and marketing teams. Photorealistic architectural visualizations with cinematic lighting and realistic materials.",
-    "url": "https://vyrospace.com/exterior-rendering.html",
-    "provider": {
-        "@type": "Organization",
-        "name": "VYROSPACE",
-        "url": "https://vyrospace.com"
-    },
-    "areaServed": "Worldwide"
-}
-    </script>
-
-    <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Interior 3D Visualization",
-    "name": "Interior 3D Visualization Services",
-    "alternateName": ["Interior Design Renders", "3D Interior Rendering"],
-    "description": "Premium interior 3D visualization services. Photorealistic interior renders for architects, designers, and real estate marketing that capture atmosphere, mood, and authentic lived-in details.",
-    "url": "https://vyrospace.com/interior-visualization.html",
-    "provider": {
-        "@type": "Organization",
-        "name": "VYROSPACE",
-        "url": "https://vyrospace.com"
-    },
-    "areaServed": "Worldwide"
-}
-    </script>
-
-    <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "3D Product Visualization",
-    "name": "3D Product Visualization Services",
-    "alternateName": ["Product CGI", "Product Rendering", "3D Product Rendering"],
-    "description": "Premium 3D product visualization services. Photorealistic CGI renders for e-commerce, marketing, and branding — studio shots, lifestyle scenes, and 360° interactive views.",
-    "url": "https://vyrospace.com/product-visualization.html",
-    "provider": {
-        "@type": "Organization",
-        "name": "VYROSPACE",
-        "url": "https://vyrospace.com"
-    },
-    "areaServed": "Worldwide"
-}
-    </script>
-
-    <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "3D Walkthrough",
-    "name": "Immersive 3D Walkthrough Services",
-    "alternateName": ["Virtual Tour", "3D Walkthrough Animation", "Architectural Walkthrough"],
-    "description": "Experience your projects before they exist with immersive 3D walkthroughs. Interactive spatial storytelling and cinematic virtual tours for architecture, real estate, and hospitality.",
-    "url": "https://vyrospace.com/3d-walkthrough.html",
-    "provider": {
-        "@type": "Organization",
-        "name": "VYROSPACE",
-        "url": "https://vyrospace.com"
-    },
-    "areaServed": "Worldwide"
-}
-    </script>
-
-    <!-- ===== NAVIGATION ===== -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#" class="nav-logo"><img src="vyro_main_png.png" alt="VYROSPACE" class="nav-logo-img"></a>
-            <div class="nav-menu" id="navMenu">
-                <ul class="nav-links">
-                    <li><a href="#" class="nav-link">Home</a></li>
-                    <li class="nav-dropdown">
-                        <a href="#" class="nav-link nav-link-dropdown">Services
-                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2.5">
-                                <polyline points="6 9 12 15 18 9" />
-                            </svg>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a href="exterior-rendering.html">Exterior 3D Renderings</a>
-                            <a href="interior-visualization.html">Interior 3D Visualization</a>
-                            <a href="product-visualization.html">3D Product Visualization</a>
-                            <a href="3d-walkthrough.html">3D Walkthrough</a>
-                        </div>
-                    </li>
-                    <li><a href="#works" class="nav-link">Gallery</a></li>
-
-                    <li><a href="#contact" class="nav-link">Contact Us</a></li>
+    <!-- ===== SCROLL-UP REVEAL FLOATING NAVBAR ===== -->
+    <header class="floating-header" id="floatingNav" aria-label="Main Floating Navigation">
+        <div class="floating-nav-inner">
+            <a href="#hero" class="floating-nav-brand" title="VYROSPACE Home">
+                <img src="vyro_main_trimmed.png" alt="VYROSPACE" class="floating-nav-logo" decoding="async">
+            </a>
+            <nav class="floating-nav-menu" aria-label="Quick links">
+                <ul class="floating-pill-list">
+                    <li><a href="#hero" class="floating-nav-link active">HOME</a></li>
+                    <li><a href="#work" class="floating-nav-link">WORK</a></li>
+                    <li><a href="#contact" class="floating-nav-link">CONTACT</a></li>
                 </ul>
+            </nav>
+            <div class="floating-nav-action">
+                <a href="#contact" class="floating-nav-cta">START A PROJECT</a>
             </div>
-            <a href="#contact" class="nav-cta-btn">Get a Quote</a>
-            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-                <span></span><span></span><span></span>
-            </button>
         </div>
-    </nav>
+    </header>
 
-    <!-- ===== HERO SECTION ===== -->
-    <section class="hero" id="hero">
-        <div class="hero-video-bg">
-            <video autoplay muted loop playsinline class="hero-bg-img">
-                <source src="hf_20260218_150059_e7d3cd63-dfe4-425d-a7bb-986e0fa27bad.mp4" type="video/mp4">
+    <!-- ===== HERO SECTION CONTAINER ===== -->
+    <div class="steelform-container">
+        <!-- 1. HERO SECTION (Signature Stadium Rounded Frame) -->
+        <section class="hero-stadium" id="hero">
+            <!-- Background Architectural Video (Optimized for ultra-fast mobile & desktop streaming) -->
+            <video autoplay muted loop playsinline preload="metadata" class="hero-video-bg" poster="web_images/hero_poster.webp">
+                <source src="web_images/hero_archviz_mobile.mp4" type="video/mp4" media="(max-width: 768px)">
+                <source src="web_images/hero_archviz_ultrafast.mp4" type="video/mp4">
             </video>
-            <div class="hero-overlay"></div>
-        </div>
 
-        <div class="hero-content">
-            <h1 class="hero-title">Shaping Tomorrow's<br>Spaces</h1>
-            <p class="hero-tagline">Creating Your Virtual Space, Together.</p>
-            <p class="hero-desc">We're creating a powerful non-existent reality. 3D rendering for architects,
-                developers, branding agencies and product design companies.</p>
+            <!-- Navigation -->
+            <nav class="hero-nav">
+                <a href="#hero" class="nav-brand" title="VYROSPACE Home">
+                    <img src="vyro_main_trimmed.png" alt="VYROSPACE" class="nav-brand-img" decoding="async">
+                </a>
 
-            <div class="hero-cta-row">
+                <ul class="nav-pill-menu" id="navPillMenu">
+                    <li><a href="#hero" class="active">HOME</a></li>
+                    <li><a href="#work">WORK</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
 
-                <a href="#contact" class="btn btn-outline-hero">Schedule a Call</a>
+                <div class="nav-contact-action">
+                    <a href="#contact" class="nav-cta-pill">START A PROJECT</a>
+                    <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation">&#9776;</button>
+                </div>
+            </nav>
+
+            <!-- Hero Center Monumental Title (Original Tagline in Monumental Style) -->
+            <div class="hero-middle">
+                <div class="display-title-group">
+                    <h1 class="display-title-above">
+                        WE SHAPE SPACES
+                    </h1>
+                    <div class="display-title-rest">
+                        BEF<span class="arch-letter">O</span>RE THEY EXIST.
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
 
-    <!-- ===== SERVICES SHOWCASE ===== -->
-    <section class="services-showcase" id="services">
+            <!-- Hero Bottom Row -->
+            <div class="hero-bottom-grid">
+                <div class="hero-narrative">
+                    <span class="hero-since">VYROSPACE &mdash; 3D VISUALIZATION STUDIO</span>
+                    <h2 class="hero-headline">
+                        PHOTOREALISTIC 3D VISUALIZATION FOR ARCHITECTURE, PRODUCTS &amp; BRANDS.
+                    </h2>
+
+                    <div class="hero-actions-row">
+                        <a href="#work" class="btn-pill btn-pill-white">VIEW WORK</a>
+                        <a href="#contact" class="btn-pill btn-pill-outline-white">START A PROJECT &rarr;</a>
+
+                        <div class="hero-social-proof">
+                            <div class="avatar-stack">
+                                <div class="avatar-circle">50+</div>
+                                <div class="avatar-circle">12+</div>
+                                <div class="avatar-circle">5Y</div>
+                            </div>
+                            <span class="social-proof-text">Projects Delivered Worldwide</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ===== STICKY CONTACT (persistent, simple) ===== -->
+    <a href="#contact" class="sticky-cta" id="stickyCta" aria-label="Start a Project">
+        <span class="sticky-cta-text">START A PROJECT</span>
+    </a>
+
+    <!-- ===== AREAS OF WORK (MIR / Kilograph categorization) ===== -->
+    <section class="areas-section" id="areas">
         <div class="container">
-            <div class="services-grid">
-                <!-- Service 1: Exterior -->
-                <div class="service-card reveal-item">
-                    <div class="service-card-img">
-                        <img src="generated image/Exterior 3d renders/hf_20260221_123254_e76dc5b9-0c51-4465-aec0-39c0541b2e60.png"
-                            alt="Exterior 3D Visualization" loading="lazy">
-                        <div class="service-card-num">01</div>
-                    </div>
-                    <div class="service-card-body">
-                        <h3>Exterior 3D Visualization</h3>
-                        <p>Bring architectural designs to life with stunning exterior 3D renderings. Showcase your
-                            projects in photorealistic detail from every angle.</p>
-                        <a href="exterior-rendering.html" class="service-link">See More
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <line x1="5" y1="12" x2="19" y2="12" />
-                                <polyline points="12 5 19 12 12 19" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
+            <div class="areas-intro">
+                <span class="section-num">01 &mdash; AREAS</span>
+                <h2 class="section-heading">AREAS OF WORK</h2>
+                <p class="areas-lead">FOUR DISCIPLINES. ONE STUDIO.</p>
+            </div>
 
-                <!-- Service 2: Interior -->
-                <div class="service-card reveal-item">
-                    <div class="service-card-img">
-                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80"
-                            alt="Interior 3D Renderings" loading="lazy">
-                        <div class="service-card-num">02</div>
+            <div class="areas-grid">
+                <a href="exterior-rendering.html" class="area-card">
+                    <div class="area-card-bg"
+                        style="background-image: url('generated image/Exterior 3d renders/hf_20260221_123254_e76dc5b9-0c51-4465-aec0-39c0541b2e60.webp');">
                     </div>
-                    <div class="service-card-body">
-                        <h3>Interior 3D Renderings</h3>
-                        <p>Transform ideas into breathtaking interior visuals. See every detail of your design come
-                            alive with vibrant and realistic 3D renderings.</p>
-                        <a href="interior-visualization.html" class="service-link">See More
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <line x1="5" y1="12" x2="19" y2="12" />
-                                <polyline points="12 5 19 12 12 19" />
-                            </svg>
-                        </a>
+                    <div class="area-card-overlay"></div>
+                    <div class="area-card-content">
+                        <span class="area-num">01 / ARCHITECTURE VISUALIZATION</span>
+                        <div class="area-card-info">
+                            <h3>ARCHITECTURE VISUALIZATION</h3>
+                            <p>Exteriors, masterplans &amp; commercial developments.</p>
+                            <span class="area-arrow">EXPLORE &rarr;</span>
+                        </div>
                     </div>
-                </div>
-
-
-
-
-                <!-- Service 4: Product Viz -->
-                <div class="service-card reveal-item">
-                    <div class="service-card-img">
-                        <img src="Screenshot_1.png" alt="3D Product Visualization" loading="lazy">
-                        <div class="service-card-num">03</div>
+                </a>
+                <a href="interior-visualization.html" class="area-card">
+                    <div class="area-card-bg"
+                        style="background-image: url('generated image/Exterior 3d renders/hf_20260221_121010_411e0084-fa7b-40fe-9478-e40eaae612a9.webp');">
                     </div>
-                    <div class="service-card-body">
-                        <h3>3D Product Visualization</h3>
-                        <p>Make your products shine with lifelike 3D visuals. Highlight features, captivate buyers, and
-                            boost your brand with mesmerizing renderings.</p>
-                        <a href="product-visualization.html" class="service-link">See More
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <line x1="5" y1="12" x2="19" y2="12" />
-                                <polyline points="12 5 19 12 12 19" />
-                            </svg>
-                        </a>
+                    <div class="area-card-overlay"></div>
+                    <div class="area-card-content">
+                        <span class="area-num">02 / INTERIOR VISUALIZATION</span>
+                        <div class="area-card-info">
+                            <h3>INTERIOR VISUALIZATION</h3>
+                            <p>Atmospheric, lived-in spaces with natural lighting.</p>
+                            <span class="area-arrow">EXPLORE &rarr;</span>
+                        </div>
                     </div>
-                </div>
-
-                <!-- Service 5: 3D Walkthrough -->
-                <div class="service-card reveal-item">
-                    <div class="service-card-img">
-                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80"
-                            alt="3D Walkthrough" loading="lazy">
-                        <div class="service-card-num">04</div>
+                </a>
+                <a href="product-visualization.html" class="area-card">
+                    <div class="area-card-bg" style="background-image: url('Screenshot_1.webp');"></div>
+                    <div class="area-card-overlay"></div>
+                    <div class="area-card-content">
+                        <span class="area-num">03 / CGI PRODUCT ANIMATION</span>
+                        <div class="area-card-info">
+                            <h3>CGI PRODUCT ANIMATION</h3>
+                            <p>Studio renders, lifestyle setups &amp; 360&deg; product CGI.</p>
+                            <span class="area-arrow">EXPLORE &rarr;</span>
+                        </div>
                     </div>
-                    <div class="service-card-body">
-                        <h3>3D Walkthrough</h3>
-                        <p>Experience immersive virtual walkthroughs of your projects. Navigate through spaces in
-                            real-time
-                            with cinematic quality and stunning detail.</p>
-                        <a href="3d-walkthrough.html" class="service-link">See More
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <line x1="5" y1="12" x2="19" y2="12" />
-                                <polyline points="12 5 19 12 12 19" />
-                            </svg>
-                        </a>
+                </a>
+                <a href="3d-walkthrough.html" class="area-card">
+                    <div class="area-card-bg"
+                        style="background-image: url('generated image/Exterior 3d renders/hf_20260221_113256_a02691ce-7f8d-4e31-898c-9289a96d7711.webp');">
                     </div>
-                </div>
+                    <div class="area-card-overlay"></div>
+                    <div class="area-card-content">
+                        <span class="area-num">04 / WALKTHROUGH</span>
+                        <div class="area-card-info">
+                            <h3>WALKTHROUGH</h3>
+                            <p>Cinematic walkthroughs &amp; dynamic video reveals.</p>
+                            <span class="area-arrow">EXPLORE &rarr;</span>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- ===== STATS BAR ===== -->
-    <section class="stats-bar">
+    <!-- ===== WORK (3 large cinematic tiles, not 6 small) ===== -->
+    <section class="work-section" id="work">
         <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <span class="stat-num" data-target="37">0</span><span class="stat-suffix">+</span>
-                    <span class="stat-label">Projects Completed</span>
+            <div class="work-header">
+                <div>
+                    <span class="section-num">02 &mdash; WORK</span>
+                    <h2 class="section-heading">WORK</h2>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-num" data-target="14">0</span><span class="stat-suffix">+</span>
-                    <span class="stat-label">Happy Clients</span>
+                <p class="work-lead">A FEW RECENT PROJECTS.</p>
+            </div>
+
+            <div class="work-carousel-viewport" id="workCarouselViewport">
+                <div class="work-carousel-stage" id="workCarouselStage">
+
+                    <!-- Project 001 -->
+                    <div class="work-card-3d" data-index="0" data-title="VILLA COMPLEX" data-cat="ARCHITECTURE" data-loc="Mediterranean Coast" data-thumb="generated image/Exterior 3d renders/hf_20260221_123254_e76dc5b9-0c51-4465-aec0-39c0541b2e60.webp">
+                        <div class="work-card-bg" style="background-image: url('generated image/Exterior 3d renders/hf_20260221_123254_e76dc5b9-0c51-4465-aec0-39c0541b2e60.webp');"></div>
+                        <div class="work-card-glass"></div>
+                        <div class="work-card-top">
+                            <span class="work-card-badge">EXPLORE &nearr;</span>
+                            <span class="work-card-counter">1 / 6</span>
+                        </div>
+                        <div class="work-card-bottom">
+                            <span class="work-card-num">001 &bull; ARCHITECTURE</span>
+                            <h3 class="work-card-title">VILLA COMPLEX</h3>
+                            <p class="work-card-desc">Sculptural concrete residence embedded into coastal cliffs with natural daylight simulation.</p>
+                            <span class="work-card-loc">Mediterranean Coast &bull; Photorealistic CGI</span>
+                        </div>
+                        <a href="exterior-rendering.html" class="work-card-link" aria-label="View Villa Complex"></a>
+                    </div>
+
+                    <!-- Project 002 -->
+                    <div class="work-card-3d" data-index="1" data-title="TROPICAL RESORT" data-cat="HOSPITALITY" data-loc="Bali Coast" data-thumb="generated image/Exterior 3d renders/hf_20260221_113256_a02691ce-7f8d-4e31-898c-9289a96d7711.webp">
+                        <div class="work-card-bg" style="background-image: url('generated image/Exterior 3d renders/hf_20260221_113256_a02691ce-7f8d-4e31-898c-9289a96d7711.webp');"></div>
+                        <div class="work-card-glass"></div>
+                        <div class="work-card-top">
+                            <span class="work-card-badge">EXPLORE &nearr;</span>
+                            <span class="work-card-counter">2 / 6</span>
+                        </div>
+                        <div class="work-card-bottom">
+                            <span class="work-card-num">002 &bull; HOSPITALITY</span>
+                            <h3 class="work-card-title">TROPICAL RESORT</h3>
+                            <p class="work-card-desc">Atmospheric luxury canopy entrance with warm interior illumination and lush landscaping.</p>
+                            <span class="work-card-loc">Bali Coast &bull; Exterior Visualization</span>
+                        </div>
+                        <a href="exterior-rendering.html" class="work-card-link" aria-label="View Tropical Resort"></a>
+                    </div>
+
+                    <!-- Project 003 -->
+                    <div class="work-card-3d" data-index="2" data-title="MINIMALIST RESIDENCE" data-cat="RESIDENTIAL" data-loc="Kyoto Suburbs" data-thumb="generated image/Exterior 3d renders/hf_20260221_112742_5bca88a7-871d-47f9-a859-cf836fb69ec4.webp">
+                        <div class="work-card-bg" style="background-image: url('generated image/Exterior 3d renders/hf_20260221_112742_5bca88a7-871d-47f9-a859-cf836fb69ec4.webp');"></div>
+                        <div class="work-card-glass"></div>
+                        <div class="work-card-top">
+                            <span class="work-card-badge">EXPLORE &nearr;</span>
+                            <span class="work-card-counter">3 / 6</span>
+                        </div>
+                        <div class="work-card-bottom">
+                            <span class="work-card-num">003 &bull; RESIDENTIAL</span>
+                            <h3 class="work-card-title">MINIMALIST RESIDENCE</h3>
+                            <p class="work-card-desc">Cantilevered volumes with delicate stone textures, slatted timber accents, and sunset lighting.</p>
+                            <span class="work-card-loc">Kyoto Suburbs &bull; Architecture Visualization</span>
+                        </div>
+                        <a href="exterior-rendering.html" class="work-card-link" aria-label="View Minimalist Residence"></a>
+                    </div>
+
+                    <!-- Project 004 -->
+                    <div class="work-card-3d" data-index="3" data-title="COMMERCIAL COMPLEX" data-cat="URBAN / COMMERCIAL" data-loc="Metropolis Center" data-thumb="generated image/Exterior 3d renders/hf_20260221_115943_a112597f-3e44-4883-919c-834eb1b8e843.webp">
+                        <div class="work-card-bg" style="background-image: url('generated image/Exterior 3d renders/hf_20260221_115943_a112597f-3e44-4883-919c-834eb1b8e843.webp');"></div>
+                        <div class="work-card-glass"></div>
+                        <div class="work-card-top">
+                            <span class="work-card-badge">EXPLORE &nearr;</span>
+                            <span class="work-card-counter">4 / 6</span>
+                        </div>
+                        <div class="work-card-bottom">
+                            <span class="work-card-num">004 &bull; URBAN / COMMERCIAL</span>
+                            <h3 class="work-card-title">COMMERCIAL COMPLEX</h3>
+                            <p class="work-card-desc">High-density urban tower architecture reflecting twilight sky and street-level atmosphere.</p>
+                            <span class="work-card-loc">Metropolis Center &bull; High-Rise CGI</span>
+                        </div>
+                        <a href="exterior-rendering.html" class="work-card-link" aria-label="View Commercial Complex"></a>
+                    </div>
+
+                    <!-- Project 005 -->
+                    <div class="work-card-3d" data-index="4" data-title="CLIFF RESIDENCE" data-cat="ARCHITECTURE" data-loc="Santorini Cliff" data-thumb="generated image/Exterior 3d renders/hf_20260221_121010_411e0084-fa7b-40fe-9478-e40eaae612a9.webp">
+                        <div class="work-card-bg" style="background-image: url('generated image/Exterior 3d renders/hf_20260221_121010_411e0084-fa7b-40fe-9478-e40eaae612a9.webp');"></div>
+                        <div class="work-card-glass"></div>
+                        <div class="work-card-top">
+                            <span class="work-card-badge">EXPLORE &nearr;</span>
+                            <span class="work-card-counter">5 / 6</span>
+                        </div>
+                        <div class="work-card-bottom">
+                            <span class="work-card-num">005 &bull; ARCHITECTURE</span>
+                            <h3 class="work-card-title">CLIFF RESIDENCE</h3>
+                            <p class="work-card-desc">Geometric terraced pavilions framing panoramic ocean horizon with warm interior glow.</p>
+                            <span class="work-card-loc">Santorini Cliff &bull; Exterior CGI</span>
+                        </div>
+                        <a href="exterior-rendering.html" class="work-card-link" aria-label="View Cliff Residence"></a>
+                    </div>
+
+                    <!-- Project 006 -->
+                    <div class="work-card-3d" data-index="5" data-title="NORDIC PAVILION" data-cat="ARCHITECTURE" data-loc="Scandinavian Forest" data-thumb="generated image/Exterior 3d renders/hf_20260221_121513_303f53cf-b83a-4855-addb-8e6ac72d83f4.webp">
+                        <div class="work-card-bg" style="background-image: url('generated image/Exterior 3d renders/hf_20260221_121513_303f53cf-b83a-4855-addb-8e6ac72d83f4.webp');"></div>
+                        <div class="work-card-glass"></div>
+                        <div class="work-card-top">
+                            <span class="work-card-badge">EXPLORE &nearr;</span>
+                            <span class="work-card-counter">6 / 6</span>
+                        </div>
+                        <div class="work-card-bottom">
+                            <span class="work-card-num">006 &bull; ARCHITECTURE</span>
+                            <h3 class="work-card-title">NORDIC PAVILION</h3>
+                            <p class="work-card-desc">Laminated timber glasshouse harmonizing minimalist Nordic architecture with surrounding pine trees.</p>
+                            <span class="work-card-loc">Scandinavian Forest &bull; Architectural Animation</span>
+                        </div>
+                        <a href="exterior-rendering.html" class="work-card-link" aria-label="View Nordic Pavilion"></a>
+                    </div>
+
                 </div>
-                <div class="stat-item">
-                    <span class="stat-num" data-target="4">0</span><span class="stat-suffix">+</span>
-                    <span class="stat-label">Years Experience</span>
+
+                <!-- Floating Glass Controller Pill -->
+                <div class="work-carousel-controls">
+                    <button class="work-ctrl-btn work-ctrl-prev" id="workCarouselPrev" aria-label="Previous Project">&larr;</button>
+                    <div class="work-ctrl-meta">
+                        <div class="work-ctrl-thumb" id="workCtrlThumb"></div>
+                        <div class="work-ctrl-text">
+                            <span class="work-ctrl-title" id="workCtrlTitle">VILLA COMPLEX</span>
+                            <span class="work-ctrl-cat" id="workCtrlCat">ARCHITECTURE &bull; 1 / 6</span>
+                        </div>
+                    </div>
+                    <button class="work-ctrl-btn work-ctrl-next" id="workCarouselNext" aria-label="Next Project">&rarr;</button>
                 </div>
             </div>
         </div>
     </section>
 
-
-    <!-- ===== WHY CHOOSE US ===== -->
-    <section class="why-section">
+    <!-- ===== STUDIO STATEMENT (DBOX / UPP editorial statement) ===== -->
+    <section class="statement-section" id="studio">
         <div class="container">
-            <h2 class="section-heading section-heading-center">What Makes VYROSPACE So Unique?</h2>
-            <div class="why-grid">
-                <div class="why-card reveal-item">
-                    <div class="why-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.5">
-                            <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                            <path d="m2 17 10 5 10-5" />
-                            <path d="m2 12 10 5 10-5" />
-                        </svg>
-                    </div>
-                    <h3>Photorealistic Quality</h3>
-                    <p>Atmospheric photo-realistic rendering is the one and only result of our production. Our technical
-                        department reviews each image for compliance with our mandatory level of artistic performance.
-                    </p>
+            <div class="statement-grid">
+                <div class="statement-left">
+                    <span class="section-num">03 &mdash; STUDIO</span>
+                    <h2 class="statement-headline">WE CREATE HIGH-END<br>3D VISUALIZATION FOR<br>ARCHITECTURE &amp;
+                        PRODUCTS.</h2>
                 </div>
-                <div class="why-card reveal-item">
-                    <div class="why-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.5">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                            <circle cx="9" cy="7" r="4" />
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                        </svg>
+                <div class="statement-right">
+                    <p class="statement-paragraph">VYROSPACE is a small, focused 3D visualization studio. We
+                        work with architects, developers, brands and agencies who need photorealistic renders, product
+                        CGI and animation that hold up to scrutiny.</p>
+                    <p class="statement-paragraph">Every project is handled by a small team from first brief
+                        to final delivery. No account managers, no handoffs. You talk to the people making the work.</p>
+                    <div class="statement-stats">
+                        <div class="statement-stat">
+                            <span class="statement-stat-num">50+</span>
+                            <span class="statement-stat-label">PROJECTS<br>DELIVERED</span>
+                        </div>
+                        <div class="statement-stat">
+                            <span class="statement-stat-num">12+</span>
+                            <span class="statement-stat-label">COUNTRIES<br>SERVED</span>
+                        </div>
+                        <div class="statement-stat">
+                            <span class="statement-stat-num">5</span>
+                            <span class="statement-stat-label">YEARS IN<br>PRODUCTION</span>
+                        </div>
                     </div>
-                    <h3>Custom Managing Process</h3>
-                    <p>We always take care of the 3D-rendering process in the initial stages to make sure it perfectly
-                        suits our client's individual needs. We discuss a unique pipeline in advance.</p>
-                </div>
-                <div class="why-card reveal-item">
-                    <div class="why-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.5">
-                            <circle cx="12" cy="12" r="10" />
-                            <path d="m2 12 10 5 10-5" />
-                            <path d="M12 2v20" />
-                        </svg>
-                    </div>
-                    <h3>Global Talent</h3>
-                    <p>Each 3D artist at VYROSPACE has the opportunity to create meaningful things. We seek the
-                        brightest minds from all over the world who share our spirit and vision.</p>
-                </div>
-                <div class="why-card reveal-item">
-                    <div class="why-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.5">
-                            <rect x="2" y="3" width="20" height="14" rx="2" />
-                            <line x1="8" y1="21" x2="16" y2="21" />
-                            <line x1="12" y1="17" x2="12" y2="21" />
-                        </svg>
-                    </div>
-                    <h3>Advanced Technology</h3>
-                    <p>We use powerful 3D rendering software and maintain our own render farm for fast turnaround.
-                        Cutting-edge tools meet artistic vision in every project.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== GALLERY / PORTFOLIO ===== -->
-    <section class="gallery-section" id="works">
+    <!-- ===== PRODUCTION PIPELINE (scroll-driven, single row) ===== -->
+    <section class="pipeline-section" id="process">
         <div class="container">
-            <div class="gallery-header">
-                <h2 class="section-heading">Our Portfolio</h2>
-                <p class="gallery-subtitle">A selection of our recent works across exterior, interior, animation and
-                    product visualization.</p>
+            <div class="pipeline-header">
+                <div>
+                    <span class="section-num">04 &mdash; PROCESS</span>
+                    <h2 class="section-heading">HOW A PROJECT MOVES</h2>
+                </div>
+                <p class="pipeline-lead">FROM FIRST BRIEF TO FINAL DELIVERY, IN FIVE STAGES.</p>
             </div>
-            <div class="gallery-grid">
-                <div class="gallery-item gallery-item-wide reveal-item">
-                    <img src="generated image/Exterior 3d renders/hf_20260221_123254_e76dc5b9-0c51-4465-aec0-39c0541b2e60.png"
-                        alt="Exterior Rendering" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-tag">Exterior</span>
-                        <h3>Villa Complex — Maldives</h3>
-                    </div>
+
+            <div class="pipeline-wrapper">
+                <div class="pipeline-track" id="pipelineTrack">
+                    <div class="pipeline-line"></div>
+                    <div class="pipeline-progress" id="pipelineProgress"></div>
                 </div>
-                <div class="gallery-item reveal-item">
-                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80"
-                        alt="Interior Rendering" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-tag">Interior</span>
-                        <h3>Luxury Penthouse — Dubai</h3>
+                <div class="pipeline-steps">
+                    <div class="pipeline-step" data-step="1">
+                        <span class="step-num">01</span>
+                        <h3>BRIEF</h3>
+                        <p>You send drawings, references &amp; requirements.</p>
                     </div>
-                </div>
-                <div class="gallery-item reveal-item">
-                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80"
-                        alt="Commercial Rendering" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-tag">Commercial</span>
-                        <h3>Office Tower — NYC</h3>
+                    <div class="pipeline-step" data-step="2">
+                        <span class="step-num">02</span>
+                        <h3>QUOTE</h3>
+                        <p>Fixed price, scope &amp; timeline confirmed.</p>
                     </div>
-                </div>
-                <div class="gallery-item reveal-item">
-                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80"
-                        alt="Product Visualization" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-tag">Product</span>
-                        <h3>Furniture Collection</h3>
+                    <div class="pipeline-step" data-step="3">
+                        <span class="step-num">03</span>
+                        <h3>PRODUCTION</h3>
+                        <p>Modeling, lighting, materials, camera.</p>
                     </div>
-                </div>
-                <div class="gallery-item gallery-item-wide reveal-item">
-                    <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=80" alt="Animation"
-                        loading="lazy">
-                    <div class="gallery-overlay">
-                        <span class="gallery-tag">Animation</span>
-                        <h3>Residential Walkthrough</h3>
+                    <div class="pipeline-step" data-step="4">
+                        <span class="step-num">04</span>
+                        <h3>REVIEW</h3>
+                        <p>Drafts delivered. Your feedback refined.</p>
+                    </div>
+                    <div class="pipeline-step" data-step="5">
+                        <span class="step-num">05</span>
+                        <h3>FINAL</h3>
+                        <p>Production-ready assets delivered.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== HOW TO GET STARTED ===== -->
-    <section class="process-section" id="process">
-        <div class="container">
-            <h2 class="section-heading section-heading-center">How to Get Started</h2>
-            <p class="process-intro">Starting your collaboration with VYROSPACE is a smooth and efficient process.
-                Here's how we work:</p>
-            <div class="process-grid">
-                <div class="process-step reveal-item">
-                    <div class="process-num">01</div>
-                    <h3>Define Your Project Goals</h3>
-                    <p>Outline your vision, preferred styles, and key requirements. Provide reference materials such as
-                        sketches, CAD files, or mood boards.</p>
-                </div>
-                <div class="process-step reveal-item">
-                    <div class="process-num">02</div>
-                    <h3>Contact Our Team</h3>
-                    <p>Reach out with a project brief including deadlines and budget. We'll analyze your needs and
-                        provide a customized proposal.</p>
-                </div>
-                <div class="process-step reveal-item">
-                    <div class="process-num">03</div>
-                    <h3>Planning & Consultation</h3>
-                    <p>Our experts guide you through lighting, materials, and scene composition. We discuss your project
-                        in detail with strategic insights.</p>
-                </div>
-                <div class="process-step reveal-item">
-                    <div class="process-num">04</div>
-                    <h3>Rendering & Revisions</h3>
-                    <p>We begin crafting visuals based on your specifications. You'll receive preview images for
-                        revisions and refinements before final delivery.</p>
-                </div>
-                <div class="process-step reveal-item">
-                    <div class="process-num">05</div>
-                    <h3>Final Delivery</h3>
-                    <p>Once approved, we provide high-resolution renderings optimized for construction, marketing, or
-                        client presentations.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ===== FAQS SECTION ===== -->
-    <section class="faq-section" id="faq">
-        <div class="container">
-            <h2 class="section-heading section-heading-center">FAQs</h2>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>What types of 3D rendering services do you provide?</span>
-                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2">
-                            <line x1="12" y1="5" x2="12" y2="19" />
-                            <line x1="5" y1="12" x2="19" y2="12" />
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>We provide a comprehensive range of 3D rendering services including exterior and interior 3D
-                            renderings, architectural animation, product visualization, 3D modeling, virtual staging,
-                            floor plan rendering, 360° virtual tours, and aerial view renderings for both architects and
-                            manufacturers.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Can I request changes or revisions to the renderings after they are completed?</span>
-                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2">
-                            <line x1="12" y1="5" x2="12" y2="19" />
-                            <line x1="5" y1="12" x2="19" y2="12" />
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes! Our workflow includes revision rounds. We provide preview images at various stages,
-                            allowing you to request changes to materials, lighting, camera angles, and overall
-                            composition before final delivery.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Does your studio offer both interior and exterior 3D rendering?</span>
-                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2">
-                            <line x1="12" y1="5" x2="12" y2="19" />
-                            <line x1="5" y1="12" x2="19" y2="12" />
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Absolutely. We specialize in both interior and exterior 3D visualization. Each type requires
-                            specific expertise, and our team has deep experience in both areas — from residential
-                            interiors to large-scale commercial exteriors.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>How long does it typically take to complete a 3D rendering project?</span>
-                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2">
-                            <line x1="12" y1="5" x2="12" y2="19" />
-                            <line x1="5" y1="12" x2="19" y2="12" />
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Timelines depend on complexity. A single exterior rendering typically takes 3-5 business
-                            days. Interior scenes usually take 3-7 days. Animations and large-scale projects are quoted
-                            individually. We always discuss timelines upfront during project planning.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>What industries need 3D rendering services?</span>
-                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2">
-                            <line x1="12" y1="5" x2="12" y2="19" />
-                            <line x1="5" y1="12" x2="19" y2="12" />
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Our services are used across many industries: architecture firms, real estate developers,
-                            interior design studios, product manufacturers, furniture companies, branding agencies, and
-                            construction companies. Anyone who needs to visualize a concept before it exists benefits
-                            from 3D rendering.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== CONTACT / CTA SECTION ===== -->
+    <!-- ===== CONTACT (single, direct — UPP / Fortes final CTA) ===== -->
     <section class="contact-section" id="contact">
         <div class="container">
             <div class="contact-layout">
                 <div class="contact-left">
-                    <h2 class="section-heading">Ready to Bring Your<br>Project to Life?</h2>
-                    <p class="contact-desc">Contact us today to discuss your 3D rendering needs and get a tailored
-                        proposal designed to meet your goals with speed and precision.</p>
-                    <div class="contact-info-list">
-                        <div class="contact-info-item">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.5">
-                                <rect width="20" height="16" x="2" y="4" rx="2" />
-                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                            </svg>
+                    <span class="section-num">05 &mdash; START</span>
+                    <h2 class="contact-headline">START A PROJECT</h2>
+                    <p class="contact-lead">Send us drawings, a model or product references. We'll review the scope and
+                        get back to you with a timeline and quotation.</p>
+                    <p class="contact-sub">TYPICALLY RESPONDING WITHIN 1 BUSINESS DAY.</p>
+
+                    <ul class="contact-info">
+                        <li>
+                            <span class="contact-info-label">EMAIL</span>
                             <a href="mailto:info@vyrospace.com">info@vyrospace.com</a>
+                        </li>
+                        <li>
+                            <span class="contact-info-label">WHATSAPP</span>
+                            <a href="https://wa.me/918460385958" target="_blank" rel="noopener noreferrer">+91 84603 85958</a>
+                        </li>
+                        <li>
+                            <span class="contact-info-label">BASED IN</span>
+                            <span>India &mdash; Working worldwide</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your name" required>
                         </div>
-                        <div class="contact-info-item">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.5">
-                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-                                <circle cx="12" cy="10" r="3" />
-                            </svg>
-                            <span>India</span>
+                        <div class="form-field">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" name="company" placeholder="Optional">
                         </div>
                     </div>
-                </div>
-                <div class="contact-right">
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <input type="text" id="name" name="name" placeholder="Your Name *" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" id="email" name="email" placeholder="Your Email *" required>
-                            </div>
+                    <div class="form-field">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="you@company.com" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="service-type">What do you need?</label>
+                        <select id="service-type" name="service-type" required>
+                            <option value="" disabled selected>Select a service</option>
+                            <option value="architecture">Architecture Visualization</option>
+                            <option value="interior">Interior Visualization</option>
+                            <option value="product">CGI Product Animation</option>
+                            <option value="walkthrough">Walkthrough</option>
+                            <option value="modeling">3D Modeling</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="project-desc">Tell us about your project</label>
+                        <textarea id="project-desc" name="project-desc"
+                            placeholder="Number of views, deliverables, references, deadline..." rows="4"></textarea>
+                    </div>
+                    <div class="form-field">
+                        <label for="files">Files (optional)</label>
+                        <div class="file-upload">
+                            <input type="file" id="files" name="files" multiple
+                                accept=".pdf,.jpg,.jpeg,.png,.dwg,.skp,.rvt,.fbx,.obj">
+                            <span class="file-upload-text">CAD / PDF / SketchUp / References</span>
                         </div>
-                        <div class="form-group">
-                            <input type="text" id="company" name="company" placeholder="Company Name">
-                        </div>
-                        <div class="form-group">
-                            <select id="service" name="service">
-                                <option value="" disabled selected>Select Service</option>
-                                <option value="exterior">Exterior 3D Renderings</option>
-                                <option value="interior">Interior 3D Visualization</option>
-                                <option value="product">3D Product Visualization</option>
-                                <option value="walkthrough">3D Walkthrough</option>
-                                <option value="modeling">3D Modeling</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Tell us about your project..."
-                                rows="5"></textarea>
-                        </div>
-                        <div class="form-group form-checkbox">
-                            <input type="checkbox" id="privacy" name="privacy" required>
-                            <label for="privacy">I agree with <a href="#">privacy policy</a></label>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-submit">
-                            Send Request
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <line x1="5" y1="12" x2="19" y2="12" />
-                                <polyline points="12 5 19 12 12 19" />
-                            </svg>
-                        </button>
-                    </form>
-                </div>
+                    </div>
+                    <button type="submit" class="form-submit magnetic-btn">
+                        Request a Quote
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                            <polyline points="12 5 19 12 12 19" />
+                        </svg>
+                    </button>
+                </form>
             </div>
         </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
+    <!-- ===== FOOTER (minimal) ===== -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col footer-brand">
-                    <a href="#" class="nav-logo"><img src="vyro_main_png.png" alt="VYROSPACE" class="nav-logo-img"></a>
-                    <p>Premium 3D visualization and architectural rendering studio. Crafting immersive digital
-                        experiences that push the boundaries of visual storytelling.</p>
-                    <div class="footer-socials">
-                        <a href="https://www.instagram.com/vyrospace_" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.5">
-                                <rect width="20" height="20" x="2" y="2" rx="5" />
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="LinkedIn">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.5">
-                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
-                                <rect width="4" height="12" x="2" y="9" />
-                                <circle cx="4" cy="4" r="2" />
-                            </svg>
-                        </a>
-
-                        <a href="#" aria-label="YouTube">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.5">
-                                <path
-                                    d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
-                                <path d="m10 15 5-3-5-3z" />
-                            </svg>
-                        </a>
-                    </div>
+            <div class="footer-inner">
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/vyrospace_" target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram" class="social-btn social-btn-instagram">
+                        <img src="steelform_assets/icon_instagram_official.svg" alt="Instagram" class="footer-social-icon" decoding="async">
+                    </a>
+                    <a href="https://www.linkedin.com/company/vyrospace/about/?viewAsMember=true" target="_blank"
+                        rel="noopener noreferrer" aria-label="LinkedIn" class="social-btn social-btn-linkedin">
+                        <img src="steelform_assets/icon_linkedin_official.svg" alt="LinkedIn" class="footer-social-icon" decoding="async">
+                    </a>
+                    <a href="#" aria-label="YouTube" class="social-btn social-btn-youtube">
+                        <img src="steelform_assets/icon_youtube_official.svg" alt="YouTube" class="footer-social-icon" decoding="async">
+                    </a>
+                    <a href="https://wa.me/918460385958" target="_blank" rel="noopener noreferrer"
+                        aria-label="WhatsApp" class="social-btn social-btn-whatsapp" title="Chat on WhatsApp (+91 84603 85958)">
+                        <img src="steelform_assets/icon_whatsapp_official.svg" alt="WhatsApp" class="footer-social-icon" decoding="async">
+                    </a>
                 </div>
-                <div class="footer-col">
-                    <h4>Services</h4>
-                    <a href="exterior-rendering.html">Exterior 3D Renderings</a>
-                    <a href="interior-visualization.html">Interior 3D Visualization</a>
-                    <a href="product-visualization.html">3D Product Visualization</a>
-                    <a href="3d-walkthrough.html">3D Walkthrough</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Company</h4>
-                    <a href="#">About</a>
-                    <a href="#">Career</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <a href="mailto:info@vyrospace.com">info@vyrospace.com</a>
-                    <a href="#">India</a>
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo" aria-label="VYROSPACE Home">
+                        <img src="vyro_main_obsidian.png" alt="VYROSPACE" class="footer-logo-img" decoding="async">
+                    </a>
+                    <p>Photorealistic 3D visualization.<br>India &mdash; working worldwide.</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 VYROSPACE. All rights reserved.</p>
-                <a href="privacy-policy.html">Terms of Use &amp; Privacy Policy</a>
+                <p>&copy; 2026 VYROSPACE</p>
+                <a href="privacy-policy.html">Privacy</a>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script src="motion.js"></script>
+    <script src="steelform.js"></script>
 </body>
 
 </html>
+

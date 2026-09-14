@@ -4,8 +4,8 @@
   "description": "Premium 3D visualization and architectural rendering studio. Crafting immersive digital experiences that push the boundaries of visual storytelling.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#ff6500",
+  "background_color": "#090a0d",
+  "theme_color": "#090a0d",
   "orientation": "portrait-primary",
   "icons": [
     {

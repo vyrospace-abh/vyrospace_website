@@ -1,6 +1,87 @@
 /* ===== VYROSPACE — Interactions ===== */
 
+// Preserve manual scroll restoration
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+const navEntries = (window.performance && performance.getEntriesByType) ? performance.getEntriesByType('navigation') : [];
+const isReload = (navEntries.length > 0 && navEntries[0].type === 'reload') || (window.performance && performance.navigation && performance.navigation.type === 1);
+
+let initialHash = window.location.hash;
+
+// If reloading, clear hash so refresh always opens homepage
+if (isReload) {
+    if (window.location.hash) {
+        try { history.replaceState(null, null, window.location.pathname); } catch (e) {}
+    }
+    initialHash = '';
+    window.scrollTo(0, 0);
+}
+
+// Helper: scroll to target with viewport positioning
+function scrollToTarget(hash, smooth = true) {
+    if (!hash || hash === '#') return false;
+    const cleanHash = hash.includes('#') ? ('#' + hash.split('#')[1]) : hash;
+    const target = document.querySelector(cleanHash);
+    if (!target) return false;
+
+    let targetTop;
+    if (cleanHash === '#hero') {
+        targetTop = 0;
+    } else if (cleanHash === '#work' || cleanHash === '#contact') {
+        const sectionTop = target.getBoundingClientRect().top + window.pageYOffset;
+        const container = target.querySelector('.container') || target;
+        const containerHeight = container.offsetHeight;
+        const availableHeight = window.innerHeight;
+
+        // If the section is full-screen 100vh and the container fits, align sectionTop exactly
+        if (target.offsetHeight >= availableHeight && containerHeight <= availableHeight) {
+            targetTop = sectionTop;
+        } else if (containerHeight < availableHeight) {
+            // Viewport is taller than container: center container vertically
+            const containerTop = container.getBoundingClientRect().top + window.pageYOffset;
+            targetTop = containerTop - (availableHeight - containerHeight) / 2;
+        } else {
+            // Viewport is shorter than container: align top of container with slight 20px padding
+            const containerTop = container.getBoundingClientRect().top + window.pageYOffset;
+            targetTop = containerTop - 20;
+        }
+    } else {
+        targetTop = target.getBoundingClientRect().top + window.pageYOffset;
+    }
+
+    window.scrollTo({
+        top: Math.max(0, Math.round(targetTop)),
+        behavior: smooth ? 'smooth' : 'auto'
+    });
+    return true;
+}
+
+// Strip hash on beforeunload so refresh always starts at top homepage
+window.addEventListener('beforeunload', () => {
+    try { history.replaceState(null, null, window.location.pathname); } catch (e) {}
+});
+
+function handleHashScroll() {
+    if (initialHash && !isReload) {
+        setTimeout(() => {
+            scrollToTarget(initialHash, true);
+        }, 80);
+        setTimeout(() => {
+            scrollToTarget(initialHash, true);
+        }, 300);
+    }
+}
+
+window.addEventListener('load', handleHashScroll);
+
 document.addEventListener('DOMContentLoaded', () => {
+    if (initialHash && !isReload) {
+        scrollToTarget(initialHash, false);
+    } else if (isReload) {
+        window.scrollTo(0, 0);
+    }
 
     /* --- Scroll-Triggered Reveal Animations --- */
     const revealItems = document.querySelectorAll('.reveal-item');
@@ -10,28 +91,68 @@ document.addEventListener('DOMContentLoaded', () => {
             if (entry.isIntersecting) {
                 setTimeout(() => {
                     entry.target.classList.add('visible');
-                }, i * 80);
+                }, Math.min(i * 40, 200));
                 revealObserver.unobserve(entry.target);
             }
         });
     }, {
-        threshold: 0.12,
-        rootMargin: '0px 0px -40px 0px'
+        threshold: 0.05,
+        rootMargin: '0px 0px 60px 0px'
     });
 
     revealItems.forEach(el => revealObserver.observe(el));
 
 
-    /* --- Navbar Scroll Effect --- */
-    const navbar = document.getElementById('navbar');
+    /* --- Scroll-Up Reveal Floating Navbar (Auto-Hide on scroll down, Reveal on scroll up) --- */
+    const floatingNav = document.getElementById('floatingNav');
+    let lastScrollY = window.scrollY;
+    const heroSection = document.getElementById('hero');
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 60) {
-            navbar.classList.add('scrolled');
+    function updateFloatingNav() {
+        if (!floatingNav) return;
+        const currentScrollY = window.scrollY;
+
+        // Threshold before floating nav can appear (near hero top it stays hidden)
+        const heroHeight = heroSection ? heroSection.offsetHeight : 600;
+        const threshold = Math.min(heroHeight * 0.45, 380);
+
+        if (currentScrollY <= threshold) {
+            floatingNav.classList.remove('is-active');
         } else {
-            navbar.classList.remove('scrolled');
+            const diff = currentScrollY - lastScrollY;
+
+            // Scrolling UP: reveal floating bar
+            if (diff < -6) {
+                floatingNav.classList.add('is-active');
+            }
+            // Scrolling DOWN: hide floating bar
+            else if (diff > 6) {
+                floatingNav.classList.remove('is-active');
+            }
         }
-    });
+
+        lastScrollY = currentScrollY;
+    }
+
+    window.addEventListener('scroll', updateFloatingNav, { passive: true });
+
+    // Logo click in floating nav: return smoothly to main homepage hero
+    if (floatingNav) {
+        const brandLink = floatingNav.querySelector('.floating-nav-brand');
+        if (brandLink) {
+            brandLink.addEventListener('click', (e) => {
+                const href = brandLink.getAttribute('href');
+                if (href === '#hero' || href === '#' || href === 'index.html#hero') {
+                    e.preventDefault();
+                    floatingNav.classList.remove('is-active');
+                    scrollToTarget('#hero', true);
+                    if (window.location.hash) {
+                        history.pushState(null, null, window.location.pathname);
+                    }
+                }
+            });
+        }
+    }
 
 
     /* --- Hamburger Menu --- */
@@ -77,27 +198,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    /* --- Smooth Scroll --- */
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    /* --- Smooth Scroll & Hash Navigation --- */
+    document.querySelectorAll('a[href*="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
-            if (href === '#') return;
-            e.preventDefault();
-            const target = document.querySelector(href);
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
+            if (!href || href === '#') return;
 
-    /* --- Cross-page links: let them navigate normally --- */
-    document.querySelectorAll('a[href*=".html#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            // Allow default navigation for cross-page hash links
-            window.location.href = this.getAttribute('href');
+            // Determine if the target is on the current page
+            const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+            const linkFile = href.split('#')[0];
+            const isSamePage = !linkFile || linkFile === currentFile ||
+                (currentFile === '' && linkFile === 'index.html') ||
+                (currentFile === 'index.html' && linkFile === 'index.html');
+
+            if (isSamePage) {
+                const hash = '#' + href.split('#')[1];
+                if (scrollToTarget(hash, true)) {
+                    e.preventDefault();
+                    // Do not push #contact into address bar to prevent refresh opening on contact
+                }
+            }
+            // If cross-page (e.g. from subpage to index.html#work), allow normal browser navigation
         });
     });
 
@@ -132,23 +253,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* --- Active Nav Highlight --- */
     const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navLinks = document.querySelectorAll('.nav-link, .nav-pill-menu a, .floating-pill-list a');
 
     const sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                const targetId = entry.target.id;
                 navLinks.forEach(link => {
-                    link.classList.remove('active');
                     const href = link.getAttribute('href');
-                    if (href && href === `#${entry.target.id}`) {
+                    if (href && (href === `#${targetId}` || href.endsWith(`#${targetId}`))) {
                         link.classList.add('active');
+                    } else if (href && href.includes('#')) {
+                        link.classList.remove('active');
                     }
                 });
             }
         });
     }, {
-        threshold: 0.3,
-        rootMargin: '-80px 0px -50% 0px'
+        threshold: 0.25,
+        rootMargin: '-80px 0px -40% 0px'
     });
 
     sections.forEach(section => sectionObserver.observe(section));
@@ -221,5 +344,77 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transition = 'opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1)';
         sectionRevealObserver.observe(el);
     });
+
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    /* --- Gallery Filter Functionality --- */
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    if (filterButtons.length > 0 && galleryItems.length > 0) {
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                // Filter gallery items
+                galleryItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        item.style.display = '';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 50);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 250);
+                    }
+                });
+            });
+        });
+    }
+
+
+    /* --- Showreel Play Button --- */
+    const showreelPlay = document.querySelector('.showreel-play');
+    const showreelPreview = document.querySelector('.showreel-preview');
+
+    if (showreelPlay && showreelPreview) {
+        showreelPlay.addEventListener('click', () => {
+            // Replace thumbnail with video player
+            showreelPreview.innerHTML = `
+                <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
+                    <source src="hf_20260218_150059_e7d3cd63-dfe4-425d-a7bb-986e0fa27bad.mp4" type="video/mp4">
+                </video>
+            `;
+        });
+    }
+
+
+    /* --- File Upload Display --- */
+    const fileInput = document.getElementById('files');
+    const fileDisplay = document.querySelector('.file-upload-text');
+
+    if (fileInput && fileDisplay) {
+        fileInput.addEventListener('change', () => {
+            const fileCount = fileInput.files.length;
+            if (fileCount > 0) {
+                fileDisplay.textContent = `${fileCount} file${fileCount > 1 ? 's' : ''} selected`;
+                fileDisplay.style.color = 'var(--accent)';
+            } else {
+                fileDisplay.textContent = 'CAD / PDF / SketchUp / References';
+                fileDisplay.style.color = '';
+            }
+        });
+    }
 
 });

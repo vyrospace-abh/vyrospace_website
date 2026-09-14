@@ -11,7 +11,8 @@ chrome_temp3/
 
 # Temporary test captures & debug files
 test_glass.html
-Screenshot_1.*
+Screenshot_1.png
+!Screenshot_1.webp
 hero_after_fix.png
 hero_cold_start.png
 hero_compressed_test.png

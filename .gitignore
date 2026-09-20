@@ -39,3 +39,11 @@ web_images/can_you_just_*.mp4
 web_images/Playblast*
 web_images/maya.ma
 web_images/image_seq/
+
+# Local tools & scratch workspace
+scratch/
+render-studio.*
+studio_backend.py
+render_camera_parallax.py
+studio_assets/
+start_studio.bat

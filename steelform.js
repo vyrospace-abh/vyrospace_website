@@ -458,5 +458,30 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // -------------------------------------------------------------
+    // 8. Architectural Showcase Category Filter
+    // -------------------------------------------------------------
+    const filterBtns = document.querySelectorAll('.sp-filter-btn');
+    const showcaseItems = document.querySelectorAll('.sp-showcase-item[data-category]');
+
+    if (filterBtns.length && showcaseItems.length) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+                showcaseItems.forEach(item => {
+                    const cats = item.getAttribute('data-category') || '';
+                    if (filter === 'all' || cats.split(' ').includes(filter)) {
+                        item.classList.remove('is-hidden');
+                    } else {
+                        item.classList.add('is-hidden');
+                    }
+                });
+            });
+        });
+    }
 });
 

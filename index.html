@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>VYROSPACE &mdash; Photorealistic 3D Visualization Studio</title>
+    <title>Architectural &amp; Product Visualization Studio | Vyrospace</title>
     <meta name="description"
-        content="Vyrospace: Photorealistic 3D visualization for architecture, interiors, products, and brands. We shape spaces before they exist.">
+        content="Vyrospace creates photorealistic architectural visualization, 3D rendering, product CGI and cinematic visual content for architecture and product brands.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="steelform.css?v=3d-shadows">
+    <link rel="stylesheet" href="steelform.css?v=corner-clip-fix">
     <!-- Preload hero poster for instant paint -->
     <link rel="preload" href="web_images/hero_poster.webp" as="image" type="image/webp">
     <link rel="canonical" href="https://vyrospace.com/">
@@ -23,33 +23,114 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="VYROSPACE &mdash; We Shape Spaces Before They Exist">
+    <meta property="og:url" content="https://vyrospace.com/">
+    <meta property="og:site_name" content="VYROSPACE">
+    <meta property="og:title" content="Architectural &amp; Product Visualization Studio | Vyrospace">
     <meta property="og:description"
-        content="Photorealistic 3D visualization for architecture, interiors, products &amp; brands.">
-    <meta property="og:image" content="web_images/homepage_image_02.webp">
+        content="We transform architectural designs and products into photorealistic imagery, cinematic animation and visual experiences that make ideas easier to see, understand and remember.">
+    <meta property="og:image" content="https://vyrospace.com/web_images/homepage_image_02.webp">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://vyrospace.com/">
+    <meta name="twitter:title" content="Architectural &amp; Product Visualization Studio | Vyrospace">
+    <meta name="twitter:description"
+        content="We transform architectural designs and products into photorealistic imagery, cinematic animation and visual experiences that make ideas easier to see, understand and remember.">
+    <meta name="twitter:image" content="https://vyrospace.com/web_images/homepage_image_02.webp">
+
+    <!-- Schema.org JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://vyrospace.com/#organization",
+                "name": "VYROSPACE",
+                "url": "https://vyrospace.com/",
+                "logo": "https://vyrospace.com/vyro_main_png.png",
+                "description": "High-end 3D visualization studio specializing in architectural visualization and product CGI.",
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "email": "info@vyrospace.com",
+                    "telephone": "+91-84603-85958",
+                    "contactType": "sales",
+                    "availableLanguage": ["English", "Hindi"]
+                },
+                "sameAs": [
+                    "https://www.instagram.com/vyrospace/",
+                    "https://www.linkedin.com/company/vyrospace/"
+                ]
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://vyrospace.com/#website",
+                "url": "https://vyrospace.com/",
+                "name": "VYROSPACE",
+                "publisher": {
+                    "@id": "https://vyrospace.com/#organization"
+                }
+            },
+            {
+                "@type": "ProfessionalService",
+                "@id": "https://vyrospace.com/#service",
+                "name": "VYROSPACE Visualization Studio",
+                "url": "https://vyrospace.com/",
+                "image": "https://vyrospace.com/web_images/homepage_image_02.webp",
+                "description": "Photorealistic architectural visualization, 3D rendering, product CGI, and cinematic animations.",
+                "priceRange": "$$$$",
+                "areaServed": "Worldwide",
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "Visualization Services",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Architectural Visualization",
+                                "url": "https://vyrospace.com/exterior-rendering.html"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Product Visualization",
+                                "url": "https://vyrospace.com/product-visualization.html"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+    </script>
     <!-- Always open at top Hero section on refresh, but honor hash navigation like #contact on click -->
     <script>
-        if ('scrollRestoration' in history) {
-            history.scrollRestoration = 'manual';
-        }
-        var isReload = false;
-        try {
-            var navEntries = window.performance && performance.getEntriesByType ? performance.getEntriesByType('navigation') : [];
-            if (navEntries.length > 0 && navEntries[0].type === 'reload') {
-                isReload = true;
-            } else if (window.performance && performance.navigation && performance.navigation.type === 1) {
-                isReload = true;
+        (function () {
+            if ('scrollRestoration' in history) {
+                history.scrollRestoration = 'manual';
             }
-        } catch (e) { }
+            var isReload = false;
+            try {
+                var navEntries = window.performance && performance.getEntriesByType ? performance.getEntriesByType('navigation') : [];
+                if (navEntries.length > 0 && navEntries[0].type === 'reload') {
+                    isReload = true;
+                } else if (window.performance && performance.navigation && performance.navigation.type === 1) {
+                    isReload = true;
+                }
+            } catch (e) { }
 
-        if (isReload) {
-            if (window.location.hash) {
-                try { history.replaceState(null, null, window.location.pathname); } catch (e) { }
+            if (isReload) {
+                if (window.location.hash) {
+                    try { history.replaceState(null, null, window.location.pathname); } catch (e) { }
+                }
+                window.scrollTo(0, 0);
+            } else if (!window.location.hash) {
+                window.scrollTo(0, 0);
             }
-            window.scrollTo(0, 0);
-        } else if (!window.location.hash) {
-            window.scrollTo(0, 0);
-        }
+        })();
     </script>
 </head>
 
@@ -65,11 +146,13 @@
                 <ul class="floating-pill-list">
                     <li><a href="#hero" class="floating-nav-link active">HOME</a></li>
                     <li><a href="#work" class="floating-nav-link">WORK</a></li>
+                    <li><a href="exterior-rendering.html" class="floating-nav-link">ARCHITECTURE</a></li>
+                    <li><a href="product-visualization.html" class="floating-nav-link">PRODUCTS</a></li>
                     <li><a href="#contact" class="floating-nav-link">CONTACT</a></li>
                 </ul>
             </nav>
             <div class="floating-nav-action">
-                <a href="#contact" class="floating-nav-cta">START A PROJECT</a>
+                <a href="#contact" class="floating-nav-cta">START A PROJECT &rarr;</a>
             </div>
         </div>
     </header>
@@ -94,47 +177,44 @@
                 <ul class="nav-pill-menu" id="navPillMenu">
                     <li><a href="#hero" class="active">HOME</a></li>
                     <li><a href="#work">WORK</a></li>
+                    <li><a href="exterior-rendering.html">ARCHITECTURE</a></li>
+                    <li><a href="product-visualization.html">PRODUCTS</a></li>
                     <li><a href="#contact">CONTACT</a></li>
                 </ul>
 
                 <div class="nav-contact-action">
-                    <a href="#contact" class="nav-cta-pill">START A PROJECT</a>
+                    <a href="#contact" class="nav-cta-pill">START A PROJECT &rarr;</a>
                     <button class="mobile-nav-toggle" id="mobileNavToggle"
                         aria-label="Toggle navigation">&#9776;</button>
                 </div>
             </nav>
 
-            <!-- Hero Center Monumental Title (Original Tagline in Monumental Style) -->
+            <!-- Hero Center Monumental Title -->
             <div class="hero-middle">
-                <div class="display-title-group">
-                    <h1 class="display-title-above">
-                        WE SHAPE SPACES
-                    </h1>
-                    <div class="display-title-rest">
-                        BEF<span class="arch-letter">O</span>RE THEY EXIST.
-                    </div>
-                </div>
+                <h1 class="display-title-group">
+                    <span class="display-title-above">TURN DESIGN</span>
+                    <span class="display-title-rest">INTO DESIRE.</span>
+                </h1>
             </div>
 
             <!-- Hero Bottom Row -->
             <div class="hero-bottom-grid">
                 <div class="hero-narrative">
-                    <span class="hero-since">VYROSPACE &mdash; 3D VISUALIZATION STUDIO</span>
+                    <span class="hero-since">ARCHITECTURAL VISUALIZATION &middot; PRODUCT VISUALIZATION &middot;
+                        CGI</span>
                     <h2 class="hero-headline">
-                        PHOTOREALISTIC 3D VISUALIZATION FOR ARCHITECTURE, PRODUCTS &amp; BRANDS.
+                        From spaces still on the drawing board to products yet to hit the market, we turn design into
+                        cinematic visuals that make people stop, look and remember.
                     </h2>
 
                     <div class="hero-actions-row">
-                        <a href="#work" class="btn-pill btn-pill-white">VIEW WORK</a>
+                        <a href="#work" class="btn-pill btn-pill-white">VIEW OUR WORK &rarr;</a>
                         <a href="#contact" class="btn-pill btn-pill-outline-white">START A PROJECT &rarr;</a>
 
                         <div class="hero-social-proof">
-                            <div class="avatar-stack">
-                                <div class="avatar-circle">50+</div>
-                                <div class="avatar-circle">12+</div>
-                                <div class="avatar-circle">5Y</div>
-                            </div>
-                            <span class="social-proof-text">Projects Delivered Worldwide</span>
+                            <span class="social-proof-text"
+                                style="letter-spacing: 2px; text-transform: uppercase; font-size: 0.78rem; opacity: 0.9; font-weight: 600;">ARCHITECTURE
+                                &middot; PRODUCTS &middot; CGI</span>
                         </div>
                     </div>
                 </div>
@@ -147,68 +227,160 @@
         <span class="sticky-cta-text">START A PROJECT</span>
     </a>
 
-    <!-- ===== AREAS OF WORK (MIR / Kilograph categorization) ===== -->
-    <section class="areas-section" id="areas">
+    <!-- ===== SECTION 01: WHAT WE DO / TWO DISCIPLINES ===== -->
+    <section class="areas-section" id="areas" style="position: relative;">
+        <span id="services" style="position: absolute; top: -80px; visibility: hidden;" aria-hidden="true"></span>
         <div class="container">
             <div class="areas-intro">
-                <span class="section-num">01 &mdash; AREAS</span>
-                <h2 class="section-heading">AREAS OF WORK</h2>
-                <p class="areas-lead">FOUR DISCIPLINES. ONE STUDIO.</p>
+                <span class="section-num">01 &mdash; WHAT WE DO</span>
+                <h2 class="section-heading">TWO DISCIPLINES. ONE VISUAL STANDARD.</h2>
+                <p class="areas-lead">WE SPECIALIZE IN VISUALIZING SPACES AND PRODUCTS WITH THE SAME OBSESSION FOR
+                    DETAIL, COMPOSITION, LIGHTING AND REALISM.</p>
             </div>
 
-            <div class="areas-grid">
-                <a href="exterior-rendering.html" class="area-card">
+            <div class="areas-grid" style="grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));">
+                <!-- 01 / ARCHITECTURE -->
+                <a href="exterior-rendering.html" class="area-card" style="min-height: 520px;">
                     <div class="area-card-bg"
                         style="background-image: url('generated image/Exterior 3d renders/hf_20260221_123254_e76dc5b9-0c51-4465-aec0-39c0541b2e60.webp');">
                     </div>
                     <div class="area-card-overlay"></div>
                     <div class="area-card-content">
-                        <span class="area-num">01 / ARCHITECTURE VISUALIZATION</span>
+                        <span class="area-num">01 / ARCHITECTURE</span>
                         <div class="area-card-info">
-                            <h3>ARCHITECTURE VISUALIZATION</h3>
-                            <p>Exteriors, masterplans &amp; commercial developments.</p>
-                            <span class="area-arrow">EXPLORE &rarr;</span>
+                            <h3>ARCHITECTURAL VISUALIZATION</h3>
+                            <p style="margin-bottom: 18px;">Photorealistic 3D visualization for architecture, interiors
+                                and real-estate projects&mdash;from early design concepts to final presentation.</p>
+
+                            <div class="area-specs-grid">
+                                <div class="area-spec-tile">
+                                    <div class="area-spec-top">
+                                        <div class="area-spec-icon-box">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <path
+                                                    d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16m14 0H5m14 0h2M5 21H3" />
+                                                <path d="M9 7h1M14 7h1M9 11h1M14 11h1M9 15h1M14 15h1" />
+                                                <path d="M10 21v-3a2 2 0 0 1 4 0v3" />
+                                            </svg>
+                                        </div>
+                                        <span class="area-spec-tag">HOSPITALITY</span>
+                                        <span class="area-spec-arrow">&rarr;</span>
+                                    </div>
+                                    <span class="area-spec-desc">Hotels &middot; Resorts &middot; Spas &middot;
+                                        Dining</span>
+                                </div>
+
+                                <div class="area-spec-tile">
+                                    <div class="area-spec-top">
+                                        <div class="area-spec-icon-box">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <rect x="4" y="2" width="9" height="20" rx="1.5" />
+                                                <path d="M13 8h7a1 1 0 0 1 1 1v13h-8" />
+                                                <path d="M7 6h3M7 10h3M7 14h3M7 18h3M16 12h2M16 16h2" />
+                                            </svg>
+                                        </div>
+                                        <span class="area-spec-tag">COMMERCIAL</span>
+                                        <span class="area-spec-arrow">&rarr;</span>
+                                    </div>
+                                    <span class="area-spec-desc">Offices &middot; Retail &middot; Mixed-Use</span>
+                                </div>
+
+                                <div class="area-spec-tile">
+                                    <div class="area-spec-top">
+                                        <div class="area-spec-icon-box">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <path d="M3 10.5L12 3l9 7.5V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9.5z" />
+                                                <path d="M9 22V12h6v10" />
+                                                <path d="M12 7.5v.01" />
+                                            </svg>
+                                        </div>
+                                        <span class="area-spec-tag">RESIDENTIAL</span>
+                                        <span class="area-spec-arrow">&rarr;</span>
+                                    </div>
+                                    <span class="area-spec-desc">Villas &middot; Apartments &middot; Estates</span>
+                                </div>
+
+                                <div class="area-spec-tile">
+                                    <div class="area-spec-top">
+                                        <div class="area-spec-icon-box">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                                                <polyline points="2 17 12 22 22 17" />
+                                                <polyline points="2 12 12 17 22 12" />
+                                            </svg>
+                                        </div>
+                                        <span class="area-spec-tag">REAL ESTATE</span>
+                                        <span class="area-spec-arrow">&rarr;</span>
+                                    </div>
+                                    <span class="area-spec-desc">Masterplans &middot; Marketing &middot; Aerials</span>
+                                </div>
+                            </div>
+
+                            <span class="area-arrow">EXPLORE ARCHITECTURE &rarr;</span>
                         </div>
                     </div>
                 </a>
-                <a href="interior-visualization.html" class="area-card">
+
+                <!-- 02 / PRODUCTS -->
+                <a href="product-visualization.html" class="area-card" style="min-height: 520px;">
                     <div class="area-card-bg"
-                        style="background-image: url('generated image/Exterior 3d renders/hf_20260221_121010_411e0084-fa7b-40fe-9478-e40eaae612a9.webp');">
+                        style="background-image: url('web_images/product_visualization_hero.webp');">
                     </div>
                     <div class="area-card-overlay"></div>
                     <div class="area-card-content">
-                        <span class="area-num">02 / INTERIOR VISUALIZATION</span>
+                        <span class="area-num">02 / PRODUCTS</span>
                         <div class="area-card-info">
-                            <h3>INTERIOR VISUALIZATION</h3>
-                            <p>Atmospheric, lived-in spaces with natural lighting.</p>
-                            <span class="area-arrow">EXPLORE &rarr;</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="product-visualization.html" class="area-card">
-                    <div class="area-card-bg"
-                        style="background-image: url('web_images/product_visualization_hero.webp');"></div>
-                    <div class="area-card-overlay"></div>
-                    <div class="area-card-content">
-                        <span class="area-num">03 / CGI PRODUCT ANIMATION</span>
-                        <div class="area-card-info">
-                            <h3>CGI PRODUCT ANIMATION</h3>
-                            <p>Studio renders, lifestyle setups &amp; 360&deg; product CGI.</p>
-                            <span class="area-arrow">EXPLORE &rarr;</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="3d-walkthrough.html" class="area-card">
-                    <div class="area-card-bg"
-                        style="background-image: url('generated image/Exterior 3d renders/hf_20260221_113256_a02691ce-7f8d-4e31-898c-9289a96d7711.webp');">
-                    </div>
-                    <div class="area-card-overlay"></div>
-                    <div class="area-card-content">
-                        <span class="area-num">04 / WALKTHROUGH</span>
-                        <div class="area-card-info">
-                            <h3>WALKTHROUGH</h3>
-                            <p>Cinematic walkthroughs &amp; dynamic video reveals.</p>
-                            <span class="area-arrow">EXPLORE &rarr;</span>
+                            <h3>PRODUCT VISUALIZATION</h3>
+                            <p style="margin-bottom: 18px;">High-end CGI and animation that transform product designs
+                                into compelling visuals for presentations, advertising, launches and digital media.</p>
+
+                            <div class="area-specs-grid">
+                                <div class="area-spec-tile">
+                                    <div class="area-spec-top">
+                                        <div class="area-spec-icon-box">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <path
+                                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                                                <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                                                <line x1="12" y1="22.08" x2="12" y2="12" />
+                                            </svg>
+                                        </div>
+                                        <span class="area-spec-tag">PRODUCT CGI</span>
+                                        <span class="area-spec-arrow">&rarr;</span>
+                                    </div>
+                                    <span class="area-spec-desc">Photorealistic renders &middot; Design review</span>
+                                </div>
+
+                                <div class="area-spec-tile">
+                                    <div class="area-spec-top">
+                                        <div class="area-spec-icon-box">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <polygon points="23 7 16 12 23 17 23 7" />
+                                                <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+                                                <circle cx="8.5" cy="12" r="2.5" />
+                                            </svg>
+                                        </div>
+                                        <span class="area-spec-tag">PRODUCT ADVERTISING</span>
+                                        <span class="area-spec-arrow">&rarr;</span>
+                                    </div>
+                                    <span class="area-spec-desc">Commercial CGI &middot; Films &middot; Launch
+                                        assets</span>
+                                </div>
+                            </div>
+
+                            <span class="area-arrow">EXPLORE PRODUCTS &rarr;</span>
                         </div>
                     </div>
                 </a>
@@ -216,26 +388,26 @@
         </div>
     </section>
 
-    <!-- ===== WORK (3 large cinematic tiles, not 6 small) ===== -->
+    <!-- ===== WORK / FEATURED PROJECTS ===== -->
     <section class="work-section" id="work">
         <div class="container">
             <div class="work-header">
                 <div>
-                    <span class="section-num">02 &mdash; WORK</span>
-                    <h2 class="section-heading">WORK</h2>
+                    <span class="section-num">02 &mdash; THE WORK</span>
+                    <h2 class="section-heading">DESIGN, VISUALIZED.</h2>
                 </div>
-                <p class="work-lead">A FEW RECENT PROJECTS.</p>
+                <p class="work-lead">SELECT VISUALIZATIONS FOR ARCHITECTURE &amp; PRODUCTS.</p>
             </div>
 
             <div class="work-carousel-viewport" id="workCarouselViewport">
                 <div class="work-carousel-stage" id="workCarouselStage">
 
                     <!-- Project 001 -->
-                    <div class="work-card-3d" data-index="0" data-title="VILLA COMPLEX" data-cat="ARCHITECTURE"
-                        data-loc="Mediterranean Coast"
-                        data-thumb="generated image/Exterior 3d renders/hf_20260221_123254_e76dc5b9-0c51-4465-aec0-39c0541b2e60.webp">
+                    <div class="work-card-3d" data-index="0" data-title="CASA VERDE"
+                        data-cat="RESIDENTIAL ARCHITECTURE &bull; CLIFFSIDE" data-loc="Cliffside Coast"
+                        data-thumb="generated image/Exterior 3d renders/ChatGPT Image Sep 6, 2026, 03_53_00 PM.webp">
                         <div class="work-card-bg"
-                            style="background-image: url('generated image/Exterior 3d renders/hf_20260221_123254_e76dc5b9-0c51-4465-aec0-39c0541b2e60.webp');">
+                            style="background-image: url('generated image/Exterior 3d renders/ChatGPT Image Sep 6, 2026, 03_53_00 PM.webp');">
                         </div>
                         <div class="work-card-glass"></div>
                         <div class="work-card-top">
@@ -244,17 +416,17 @@
                         </div>
                         <div class="work-card-bottom">
                             <span class="work-card-num">001 &bull; ARCHITECTURE</span>
-                            <h3 class="work-card-title">VILLA COMPLEX</h3>
-                            <p class="work-card-desc">Sculptural concrete residence embedded into coastal cliffs with
-                                natural daylight simulation.</p>
-                            <span class="work-card-loc">Mediterranean Coast &bull; Photorealistic CGI</span>
+                            <h3 class="work-card-title">CASA VERDE</h3>
+                            <p class="work-card-desc">Sculptural cliffside residential architecture: natural daylight
+                                studies, tactile stone textures, and presentation stills.</p>
+                            <span class="work-card-loc">Residential Architecture &bull; Mumbai</span>
                         </div>
-                        <a href="exterior-rendering.html" class="work-card-link" aria-label="View Villa Complex"></a>
+                        <a href="exterior-rendering.html" class="work-card-link" aria-label="View Casa Verde"></a>
                     </div>
 
                     <!-- Project 002 -->
-                    <div class="work-card-3d" data-index="1" data-title="TROPICAL RESORT" data-cat="HOSPITALITY"
-                        data-loc="Bali Coast"
+                    <div class="work-card-3d" data-index="1" data-title="THE MERIDIAN"
+                        data-cat="HOSPITALITY ARCHITECTURE &bull; DUBAI" data-loc="Dubai Coast"
                         data-thumb="generated image/Exterior 3d renders/hf_20260221_113256_a02691ce-7f8d-4e31-898c-9289a96d7711.webp">
                         <div class="work-card-bg"
                             style="background-image: url('generated image/Exterior 3d renders/hf_20260221_113256_a02691ce-7f8d-4e31-898c-9289a96d7711.webp');">
@@ -266,20 +438,20 @@
                         </div>
                         <div class="work-card-bottom">
                             <span class="work-card-num">002 &bull; HOSPITALITY</span>
-                            <h3 class="work-card-title">TROPICAL RESORT</h3>
-                            <p class="work-card-desc">Atmospheric luxury canopy entrance with warm interior illumination
-                                and lush landscaping.</p>
-                            <span class="work-card-loc">Bali Coast &bull; Exterior Visualization</span>
+                            <h3 class="work-card-title">THE MERIDIAN</h3>
+                            <p class="work-card-desc">Luxury hospitality resort: arrival pavilion sequence, twilight
+                                illumination, and atmospheric architectural CGI.</p>
+                            <span class="work-card-loc">Hospitality Architecture &bull; Dubai</span>
                         </div>
-                        <a href="exterior-rendering.html" class="work-card-link" aria-label="View Tropical Resort"></a>
+                        <a href="exterior-rendering.html" class="work-card-link" aria-label="View The Meridian"></a>
                     </div>
 
                     <!-- Project 003 -->
-                    <div class="work-card-3d" data-index="2" data-title="MINIMALIST RESIDENCE" data-cat="RESIDENTIAL"
-                        data-loc="Kyoto Suburbs"
-                        data-thumb="generated image/Exterior 3d renders/hf_20260221_112742_5bca88a7-871d-47f9-a859-cf836fb69ec4.webp">
+                    <div class="work-card-3d" data-index="2" data-title="AURELIA"
+                        data-cat="PRODUCT VISUALIZATION &bull; CONSUMER TECH" data-loc="Consumer Technology"
+                        data-thumb="web_images/product_visualization_hero.webp">
                         <div class="work-card-bg"
-                            style="background-image: url('generated image/Exterior 3d renders/hf_20260221_112742_5bca88a7-871d-47f9-a859-cf836fb69ec4.webp');">
+                            style="background-image: url('web_images/product_visualization_hero.webp');">
                         </div>
                         <div class="work-card-glass"></div>
                         <div class="work-card-top">
@@ -287,19 +459,19 @@
                             <span class="work-card-counter">3 / 6</span>
                         </div>
                         <div class="work-card-bottom">
-                            <span class="work-card-num">003 &bull; RESIDENTIAL</span>
-                            <h3 class="work-card-title">MINIMALIST RESIDENCE</h3>
-                            <p class="work-card-desc">Cantilevered volumes with delicate stone textures, slatted timber
-                                accents, and sunset lighting.</p>
-                            <span class="work-card-loc">Kyoto Suburbs &bull; Architecture Visualization</span>
+                            <span class="work-card-num">003 &bull; PRODUCTS</span>
+                            <h3 class="work-card-title">AURELIA</h3>
+                            <p class="work-card-desc">High-end audio device CGI: precision material realism, tactile
+                                aluminum reflections, and commercial animation.</p>
+                            <span class="work-card-loc">Product Visualization &bull; Consumer Technology</span>
                         </div>
-                        <a href="exterior-rendering.html" class="work-card-link"
-                            aria-label="View Minimalist Residence"></a>
+                        <a href="product-visualization.html" class="work-card-link"
+                            aria-label="View Aurelia Product CGI"></a>
                     </div>
 
                     <!-- Project 004 -->
-                    <div class="work-card-3d" data-index="3" data-title="COMMERCIAL COMPLEX"
-                        data-cat="URBAN / COMMERCIAL" data-loc="Metropolis Center"
+                    <div class="work-card-3d" data-index="3" data-title="METROPOLIS TOWER"
+                        data-cat="COMMERCIAL ARCHITECTURE &bull; METROPOLIS" data-loc="Metropolis Center"
                         data-thumb="generated image/Exterior 3d renders/hf_20260221_115943_a112597f-3e44-4883-919c-834eb1b8e843.webp">
                         <div class="work-card-bg"
                             style="background-image: url('generated image/Exterior 3d renders/hf_20260221_115943_a112597f-3e44-4883-919c-834eb1b8e843.webp');">
@@ -310,19 +482,18 @@
                             <span class="work-card-counter">4 / 6</span>
                         </div>
                         <div class="work-card-bottom">
-                            <span class="work-card-num">004 &bull; URBAN / COMMERCIAL</span>
-                            <h3 class="work-card-title">COMMERCIAL COMPLEX</h3>
-                            <p class="work-card-desc">High-density urban tower architecture reflecting twilight sky and
-                                street-level atmosphere.</p>
-                            <span class="work-card-loc">Metropolis Center &bull; High-Rise CGI</span>
+                            <span class="work-card-num">004 &bull; COMMERCIAL</span>
+                            <h3 class="work-card-title">METROPOLIS TOWER</h3>
+                            <p class="work-card-desc">High-density commercial development: skyline exterior CGI, public
+                                realm street activation, and leasing presentation.</p>
+                            <span class="work-card-loc">Commercial Architecture &bull; Metropolis</span>
                         </div>
-                        <a href="exterior-rendering.html" class="work-card-link"
-                            aria-label="View Commercial Complex"></a>
+                        <a href="exterior-rendering.html" class="work-card-link" aria-label="View Metropolis Tower"></a>
                     </div>
 
                     <!-- Project 005 -->
-                    <div class="work-card-3d" data-index="4" data-title="CLIFF RESIDENCE" data-cat="ARCHITECTURE"
-                        data-loc="Santorini Cliff"
+                    <div class="work-card-3d" data-index="4" data-title="CLIFF RESIDENCE"
+                        data-cat="ARCHITECTURE &bull; CINEMATIC MOTION" data-loc="Santorini Cliff"
                         data-thumb="generated image/Exterior 3d renders/hf_20260221_121010_411e0084-fa7b-40fe-9478-e40eaae612a9.webp">
                         <div class="work-card-bg"
                             style="background-image: url('generated image/Exterior 3d renders/hf_20260221_121010_411e0084-fa7b-40fe-9478-e40eaae612a9.webp');">
@@ -333,18 +504,18 @@
                             <span class="work-card-counter">5 / 6</span>
                         </div>
                         <div class="work-card-bottom">
-                            <span class="work-card-num">005 &bull; ARCHITECTURE</span>
+                            <span class="work-card-num">005 &bull; MOTION</span>
                             <h3 class="work-card-title">CLIFF RESIDENCE</h3>
-                            <p class="work-card-desc">Geometric terraced pavilions framing panoramic ocean horizon with
-                                warm interior glow.</p>
-                            <span class="work-card-loc">Santorini Cliff &bull; Exterior CGI</span>
+                            <p class="work-card-desc">Terraced oceanfront residence: golden-hour camera-driven film
+                                sequence, interior mood lighting, and cinematic CGI.</p>
+                            <span class="work-card-loc">Architecture &bull; Cinematic Motion</span>
                         </div>
-                        <a href="exterior-rendering.html" class="work-card-link" aria-label="View Cliff Residence"></a>
+                        <a href="3d-walkthrough.html" class="work-card-link" aria-label="View Cliff Residence"></a>
                     </div>
 
                     <!-- Project 006 -->
-                    <div class="work-card-3d" data-index="5" data-title="NORDIC PAVILION" data-cat="ARCHITECTURE"
-                        data-loc="Scandinavian Forest"
+                    <div class="work-card-3d" data-index="5" data-title="NORDIC PAVILION"
+                        data-cat="ARCHITECTURE &bull; COMPETITION" data-loc="Scandinavian Forest"
                         data-thumb="generated image/Exterior 3d renders/hf_20260221_121513_303f53cf-b83a-4855-addb-8e6ac72d83f4.webp">
                         <div class="work-card-bg"
                             style="background-image: url('generated image/Exterior 3d renders/hf_20260221_121513_303f53cf-b83a-4855-addb-8e6ac72d83f4.webp');">
@@ -357,9 +528,9 @@
                         <div class="work-card-bottom">
                             <span class="work-card-num">006 &bull; ARCHITECTURE</span>
                             <h3 class="work-card-title">NORDIC PAVILION</h3>
-                            <p class="work-card-desc">Laminated timber glasshouse harmonizing minimalist Nordic
-                                architecture with surrounding pine trees.</p>
-                            <span class="work-card-loc">Scandinavian Forest &bull; Architectural Animation</span>
+                            <p class="work-card-desc">Mass-timber glass pavilion visualized for competition review,
+                                planning board alignment, and monograph publication.</p>
+                            <span class="work-card-loc">Architecture &bull; Competition Package</span>
                         </div>
                         <a href="exterior-rendering.html" class="work-card-link" aria-label="View Nordic Pavilion"></a>
                     </div>
@@ -373,8 +544,8 @@
                     <div class="work-ctrl-meta">
                         <div class="work-ctrl-thumb" id="workCtrlThumb"></div>
                         <div class="work-ctrl-text">
-                            <span class="work-ctrl-title" id="workCtrlTitle">VILLA COMPLEX</span>
-                            <span class="work-ctrl-cat" id="workCtrlCat">ARCHITECTURE &bull; 1 / 6</span>
+                            <span class="work-ctrl-title" id="workCtrlTitle">CASA VERDE</span>
+                            <span class="work-ctrl-cat" id="workCtrlCat">RESIDENTIAL &bull; 1 / 6</span>
                         </div>
                     </div>
                     <button class="work-ctrl-btn work-ctrl-next" id="workCarouselNext"
@@ -384,25 +555,26 @@
         </div>
     </section>
 
-    <!-- ===== STUDIO STATEMENT (DBOX / UPP editorial statement) ===== -->
+    <!-- ===== STUDIO STATEMENT / ABOUT ===== -->
     <section class="statement-section" id="studio">
         <div class="container">
             <div class="statement-grid">
                 <div class="statement-left">
-                    <span class="section-num">03 &mdash; STUDIO</span>
-                    <h2 class="statement-headline">WE CREATE HIGH-END<br>3D VISUALIZATION FOR<br>ARCHITECTURE &amp;
-                        PRODUCTS.</h2>
+                    <span class="section-num">03 &mdash; ABOUT</span>
+                    <h2 class="statement-headline">BUILT AROUND<br>THE DETAIL.<br>WE BUILD IMAGES<br>FROM DESIGN.</h2>
                 </div>
                 <div class="statement-right">
-                    <p class="statement-paragraph">VYROSPACE is a small, focused 3D visualization studio. We
-                        work with architects, developers, brands and agencies who need photorealistic renders, product
-                        CGI and animation that hold up to scrutiny.</p>
-                    <p class="statement-paragraph">Every project is handled by a small team from first brief
-                        to final delivery. No account managers, no handoffs. You talk to the people making the work.</p>
+                    <p class="statement-paragraph">Vyrospace is a CGI and visual production studio specializing in
+                        architectural visualization and product visualization. We combine 3D, cinematography, lighting,
+                        materials and visual direction to turn designs into imagery that communicates more than
+                        technical drawings can.</p>
+                    <p class="statement-paragraph">Every visual starts with intentional composition, camera language and
+                        visual hierarchy &mdash; developing materials, lighting, reflections, scale and atmosphere to
+                        make each frame believable without compromising the original design.</p>
                     <div class="statement-stats">
                         <div class="statement-stat">
                             <span class="statement-stat-num">50+</span>
-                            <span class="statement-stat-label">PROJECTS<br>DELIVERED</span>
+                            <span class="statement-stat-label">PROJECTS<br>COMPLETED</span>
                         </div>
                         <div class="statement-stat">
                             <span class="statement-stat-num">12+</span>
@@ -418,15 +590,15 @@
         </div>
     </section>
 
-    <!-- ===== PRODUCTION PIPELINE (scroll-driven, single row) ===== -->
+    <!-- ===== PRODUCTION PIPELINE / FROM DESIGN TO FINAL FRAME ===== -->
     <section class="pipeline-section" id="process">
         <div class="container">
             <div class="pipeline-header">
                 <div>
                     <span class="section-num">04 &mdash; PROCESS</span>
-                    <h2 class="section-heading">HOW A PROJECT MOVES</h2>
+                    <h2 class="section-heading">FROM DESIGN TO FINAL FRAME</h2>
                 </div>
-                <p class="pipeline-lead">FROM FIRST BRIEF TO FINAL DELIVERY, IN FIVE STAGES.</p>
+                <p class="pipeline-lead">WE DON'T JUST RENDER. WE BUILD THE VISUAL.</p>
             </div>
 
             <div class="pipeline-wrapper">
@@ -437,44 +609,45 @@
                 <div class="pipeline-steps">
                     <div class="pipeline-step" data-step="1">
                         <span class="step-num">01</span>
-                        <h3>BRIEF</h3>
-                        <p>You send drawings, references &amp; requirements.</p>
+                        <h3>UNDERSTAND</h3>
+                        <p>We study the design, references, drawings, audience and purpose of the project.</p>
                     </div>
                     <div class="pipeline-step" data-step="2">
                         <span class="step-num">02</span>
-                        <h3>QUOTE</h3>
-                        <p>Fixed price, scope &amp; timeline confirmed.</p>
+                        <h3>BUILD</h3>
+                        <p>3D modeling, material development, environments and technical preparation.</p>
                     </div>
                     <div class="pipeline-step" data-step="3">
                         <span class="step-num">03</span>
-                        <h3>PRODUCTION</h3>
-                        <p>Modeling, lighting, materials, camera.</p>
+                        <h3>COMPOSE</h3>
+                        <p>Camera, framing, scale, cinematography and intentional visual hierarchy.</p>
                     </div>
                     <div class="pipeline-step" data-step="4">
                         <span class="step-num">04</span>
-                        <h3>REVIEW</h3>
-                        <p>Drafts delivered. Your feedback refined.</p>
+                        <h3>LIGHT</h3>
+                        <p>Natural and artificial lighting sculpted around the mood and architecture or product.</p>
                     </div>
                     <div class="pipeline-step" data-step="5">
                         <span class="step-num">05</span>
-                        <h3>FINAL</h3>
-                        <p>Production-ready assets delivered.</p>
+                        <h3>DELIVER</h3>
+                        <p>Look development, rendering, compositing and production-ready final assets.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== CONTACT (single, direct — UPP / Fortes final CTA) ===== -->
+    <!-- ===== CONTACT / FINAL CTA ===== -->
     <section class="contact-section" id="contact">
         <div class="container">
             <div class="contact-layout">
                 <div class="contact-left">
-                    <span class="section-num">05 &mdash; START</span>
-                    <h2 class="contact-headline">START A PROJECT</h2>
-                    <p class="contact-lead">Send us drawings, a model or product references. We'll review the scope and
-                        get back to you with a timeline and quotation.</p>
-                    <p class="contact-sub">TYPICALLY RESPONDING WITHIN 1 BUSINESS DAY.</p>
+                    <span class="section-num">05 &mdash; START A PROJECT</span>
+                    <h2 class="contact-headline">HAVE A DESIGN WORTH SEEING?</h2>
+                    <p class="contact-lead">Tell us what you're building, designing or launching. We'll help turn it
+                        into visuals that make people stop and look.</p>
+                    <p class="contact-sub">ARCHITECTURE &bull; PRODUCTS &bull; CGI &mdash; TYPICALLY RESPONDING WITHIN 1
+                        BUSINESS DAY.</p>
 
                     <ul class="contact-info">
                         <li>
@@ -501,40 +674,77 @@
                         </div>
                         <div class="form-field">
                             <label for="company">Company</label>
-                            <input type="text" id="company" name="company" placeholder="Optional">
+                            <input type="text" id="company" name="company" placeholder="Studio or Developer name">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="email">Work Email</label>
+                            <input type="email" id="email" name="email" placeholder="you@company.com" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="phone">Phone / WhatsApp (Optional)</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="service-type">Project Type</label>
+                            <select id="service-type" name="service-type" required>
+                                <option value="" disabled selected>Select project type</option>
+                                <option value="residential">Residential Architecture / Estate</option>
+                                <option value="commercial">Commercial / Masterplan / Tower</option>
+                                <option value="hospitality">Hospitality &amp; Luxury Resort</option>
+                                <option value="interior">Interior Architecture</option>
+                                <option value="product">Product CGI</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label for="deliverables">What do you need?</label>
+                            <select id="deliverables" name="deliverables" required>
+                                <option value="" disabled selected>Select required deliverables</option>
+                                <option value="launch-campaign">Full Project Launch Campaign (Stills + Film + Social)
+                                </option>
+                                <option value="hero-stills">Hero Stills Package (Exterior &amp; Interior)</option>
+                                <option value="cinematic-film">Cinematic Project Film (30&ndash;90s)</option>
+                                <option value="sales-kit">Visual Sales &amp; Marketing Kit</option>
+                                <option value="planning-approval">Competition / Planning Approval Package</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="project-stage">Project Stage</label>
+                            <select id="project-stage" name="project-stage">
+                                <option value="" disabled selected>Select current stage</option>
+                                <option value="concept">Concept / Schematic Design</option>
+                                <option value="planning">Design Development / Planning Review</option>
+                                <option value="pre-launch">Pre-Launch / Marketing Phase</option>
+                                <option value="under-construction">Under Construction</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label for="timeline">Timeline / Target Date</label>
+                            <input type="text" id="timeline" name="timeline" placeholder="e.g. 3-4 weeks / Flexible">
                         </div>
                     </div>
                     <div class="form-field">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="you@company.com" required>
-                    </div>
-                    <div class="form-field">
-                        <label for="service-type">What do you need?</label>
-                        <select id="service-type" name="service-type" required>
-                            <option value="" disabled selected>Select a service</option>
-                            <option value="architecture">Architecture Visualization</option>
-                            <option value="interior">Interior Visualization</option>
-                            <option value="product">CGI Product Animation</option>
-                            <option value="walkthrough">Walkthrough</option>
-                            <option value="modeling">3D Modeling</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-field">
-                        <label for="project-desc">Tell us about your project</label>
+                        <label for="project-desc">Project Details &amp; Commercial Goals</label>
                         <textarea id="project-desc" name="project-desc"
-                            placeholder="Number of views, deliverables, references, deadline..." rows="4"></textarea>
+                            placeholder="Tell us about the architecture, key highlights, target buyer/audience, or required views..."
+                            rows="3"></textarea>
                     </div>
                     <div class="form-field">
-                        <label for="files">Files (optional)</label>
+                        <label for="files">Upload Drawings / Models (Optional)</label>
                         <div class="file-upload">
                             <input type="file" id="files" name="files" multiple
-                                accept=".pdf,.jpg,.jpeg,.png,.dwg,.skp,.rvt,.fbx,.obj">
-                            <span class="file-upload-text">CAD / PDF / SketchUp / References</span>
+                                accept=".pdf,.jpg,.jpeg,.png,.dwg,.skp,.rvt,.fbx,.obj,.zip">
+                            <span class="file-upload-text">CAD / PDF / SketchUp / Revit / References</span>
                         </div>
                     </div>
-                    <button type="submit" class="form-submit magnetic-btn">
-                        Request a Quote
+                    <button type="submit" class="form-submit btn-submit magnetic-btn">
+                        Send Project Brief
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
                             <line x1="5" y1="12" x2="19" y2="12" />
@@ -575,7 +785,7 @@
                     <a href="index.html" class="footer-logo" aria-label="VYROSPACE Home">
                         <img src="vyro_main_obsidian.png" alt="VYROSPACE" class="footer-logo-img" decoding="async">
                     </a>
-                    <p>Photorealistic 3D visualization.<br>India &mdash; working worldwide.</p>
+                    <p>Architectural &amp; Product Visualization Studio.<br>India &mdash; working worldwide.</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -585,7 +795,7 @@
         </div>
     </footer>
 
-    <script src="script.js?v=3d-shadows"></script>
+    <script src="script.js?v=popup-nav-v2"></script>
     <script src="motion.js?v=3d-shadows"></script>
     <script src="steelform.js?v=3d-shadows"></script>
 </body>

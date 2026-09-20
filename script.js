@@ -1,25 +1,27 @@
 /* ===== VYROSPACE — Interactions ===== */
+(function () {
+    'use strict';
 
-// Preserve manual scroll restoration
-if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-}
-
-const navEntries = (window.performance && performance.getEntriesByType) ? performance.getEntriesByType('navigation') : [];
-const isReload = (navEntries.length > 0 && navEntries[0].type === 'reload') || (window.performance && performance.navigation && performance.navigation.type === 1);
-
-let initialHash = window.location.hash;
-
-// If reloading, clear hash so refresh always opens homepage
-if (isReload) {
-    if (window.location.hash) {
-        try { history.replaceState(null, null, window.location.pathname); } catch (e) {}
+    // Preserve manual scroll restoration
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
     }
-    initialHash = '';
-    window.scrollTo(0, 0);
-}
 
-// Helper: scroll to target with viewport positioning
+    const navEntries = (window.performance && performance.getEntriesByType) ? performance.getEntriesByType('navigation') : [];
+    const isReload = (navEntries.length > 0 && navEntries[0].type === 'reload') || (window.performance && performance.navigation && performance.navigation.type === 1);
+
+    let initialHash = window.location.hash;
+
+    // If reloading, clear hash so refresh always opens homepage
+    if (isReload) {
+        if (window.location.hash) {
+            try { history.replaceState(null, null, window.location.pathname); } catch (e) {}
+        }
+        initialHash = '';
+        window.scrollTo(0, 0);
+    }
+
+    // Helper: scroll to target with viewport positioning
 function scrollToTarget(hash, smooth = true) {
     if (!hash || hash === '#') return false;
     const cleanHash = hash.includes('#') ? ('#' + hash.split('#')[1]) : hash;
@@ -103,37 +105,25 @@ document.addEventListener('DOMContentLoaded', () => {
     revealItems.forEach(el => revealObserver.observe(el));
 
 
-    /* --- Scroll-Up Reveal Floating Navbar (Auto-Hide on scroll down, Reveal on scroll up) --- */
+    /* --- Scroll-Up Popup Floating Navbar (Pops up when scrolling up, hides on scroll down) --- */
     const floatingNav = document.getElementById('floatingNav');
-    let lastScrollY = window.scrollY;
-    const heroSection = document.getElementById('hero');
-    let cachedHeroThreshold = 380;
+    let lastScrollY = Math.max(0, window.pageYOffset || document.documentElement.scrollTop || 0);
+    const navThreshold = 100; // Active after passing top hero header zone
     let navRaf = null;
-
-    function recalculateNavThreshold() {
-        const heroHeight = heroSection ? heroSection.offsetHeight : 600;
-        cachedHeroThreshold = Math.min(heroHeight * 0.45, 380);
-    }
-    recalculateNavThreshold();
-    window.addEventListener('resize', recalculateNavThreshold, { passive: true });
 
     function updateFloatingNav() {
         if (!floatingNav) return;
-        const currentScrollY = window.scrollY;
+        const currentScrollY = Math.max(0, window.pageYOffset || document.documentElement.scrollTop || 0);
 
-        if (currentScrollY <= cachedHeroThreshold) {
+        // Near the top of the page, keep hidden (hero has its own header)
+        if (currentScrollY <= navThreshold) {
             floatingNav.classList.remove('is-active');
-        } else {
-            const diff = currentScrollY - lastScrollY;
-
-            // Scrolling UP: reveal floating bar
-            if (diff < -6) {
-                floatingNav.classList.add('is-active');
-            }
-            // Scrolling DOWN: hide floating bar
-            else if (diff > 6) {
-                floatingNav.classList.remove('is-active');
-            }
+        } else if (currentScrollY < lastScrollY) {
+            // Scrolling UP: popup the floating navbar
+            floatingNav.classList.add('is-active');
+        } else if (currentScrollY > lastScrollY) {
+            // Scrolling DOWN: hide the floating navbar
+            floatingNav.classList.remove('is-active');
         }
 
         lastScrollY = currentScrollY;
@@ -146,8 +136,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, { passive: true });
 
-    // Logo click in floating nav: return smoothly to main homepage hero
+    // Floating nav links: close on click and allow smooth transition
     if (floatingNav) {
+        floatingNav.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+                floatingNav.classList.remove('is-active');
+            });
+        });
+
+        // Logo click in floating nav: return smoothly to main homepage hero
         const brandLink = floatingNav.querySelector('.floating-nav-brand');
         if (brandLink) {
             brandLink.addEventListener('click', (e) => {
@@ -240,11 +237,12 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            const btn = contactForm.querySelector('.btn-submit');
+            const btn = contactForm.querySelector('.btn-submit') || contactForm.querySelector('.form-submit');
+            if (!btn) return;
             const originalHTML = btn.innerHTML;
 
             btn.innerHTML = `
-                <span>Request Sent! ✓</span>
+                <span>Project Brief Sent! ✓</span>
             `;
             btn.style.background = '#22c55e';
             btn.style.color = '#fff';
@@ -428,3 +426,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+})();

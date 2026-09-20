@@ -371,25 +371,168 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // -------------------------------------------------------------
-    // 4. Mobile Navigation Drawer Toggle
+    // 4. Mobile Navigation Drawer System (iOS & Android Unified)
     // -------------------------------------------------------------
-    const mobileToggle = document.getElementById('mobileNavToggle');
-    const navPillMenu = document.getElementById('navPillMenu');
+    function initMobileNavSystem() {
+        // Ensure floating nav has a mobile hamburger button on every page
+        const floatingAction = document.querySelector('.floating-nav-action');
+        if (floatingAction && !document.getElementById('floatingMobileToggle')) {
+            const floatToggle = document.createElement('button');
+            floatToggle.className = 'floating-mobile-toggle';
+            floatToggle.id = 'floatingMobileToggle';
+            floatToggle.setAttribute('aria-label', 'Open navigation menu');
+            floatToggle.innerHTML = '&#9776;';
+            floatingAction.appendChild(floatToggle);
+        }
 
-    if (mobileToggle && navPillMenu) {
-        mobileToggle.addEventListener('click', () => {
-            navPillMenu.classList.toggle('mobile-open');
-            mobileToggle.textContent = navPillMenu.classList.contains('mobile-open') ? '✕' : '☰';
-        });
+        // Ensure mobile drawer overlay exists in DOM
+        let drawer = document.getElementById('mobileDrawer');
+        if (!drawer) {
+            drawer = document.createElement('div');
+            drawer.className = 'mobile-drawer-overlay';
+            drawer.id = 'mobileDrawer';
+            drawer.setAttribute('aria-hidden', 'true');
 
-        // Close on link click
-        navPillMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navPillMenu.classList.remove('mobile-open');
-                mobileToggle.textContent = '☰';
+            // Determine page context for links
+            const path = (window.location.pathname || '').toLowerCase();
+            const isHome = path.endsWith('index.html') || path === '/' || path.endsWith('/vyrospace/') || path === '';
+            const isExterior = path.includes('exterior-rendering');
+            const isProduct = path.includes('product-visualization');
+            const isInterior = path.includes('interior-visualization');
+            const isWalkthrough = path.includes('3d-walkthrough');
+
+            const homeUrl = isHome ? '#hero' : 'index.html';
+            const workUrl = isHome ? '#work' : 'index.html#work';
+            const archUrl = 'exterior-rendering.html';
+            const prodUrl = 'product-visualization.html';
+            const contactUrl = isHome ? '#contact' : 'index.html#contact';
+
+            drawer.innerHTML = `
+                <div class="mobile-drawer-backdrop"></div>
+                <div class="mobile-drawer-panel">
+                    <div class="mobile-drawer-header">
+                        <a href="${isHome ? '#hero' : 'index.html'}" class="mobile-drawer-brand" title="VYROSPACE Home">
+                            <img src="vyro_main_trimmed.png" alt="VYROSPACE" class="mobile-drawer-logo" decoding="async">
+                        </a>
+                        <button class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close navigation menu">&times;</button>
+                    </div>
+                    <div class="mobile-drawer-body">
+                        <nav class="mobile-drawer-nav" aria-label="Mobile Navigation">
+                            <ul class="mobile-drawer-links">
+                                <li>
+                                    <a href="${homeUrl}" class="mobile-drawer-link ${isHome ? 'active' : ''}">
+                                        <div class="m-link-left"><span class="m-link-num">01</span><span class="m-link-text">HOME</span></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="${workUrl}" class="mobile-drawer-link">
+                                        <div class="m-link-left"><span class="m-link-num">02</span><span class="m-link-text">WORK</span></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="${archUrl}" class="mobile-drawer-link ${isExterior ? 'active' : ''}">
+                                        <div class="m-link-left"><span class="m-link-num">03</span><span class="m-link-text">ARCHITECTURE</span></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="${prodUrl}" class="mobile-drawer-link ${isProduct ? 'active' : ''}">
+                                        <div class="m-link-left"><span class="m-link-num">04</span><span class="m-link-text">PRODUCTS</span></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="${contactUrl}" class="mobile-drawer-link">
+                                        <div class="m-link-left"><span class="m-link-num">05</span><span class="m-link-text">CONTACT</span></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="mobile-drawer-footer">
+                        <a href="${contactUrl}" class="mobile-drawer-cta">START A PROJECT &rarr;</a>
+                        <div class="mobile-drawer-quick-row">
+                            <a href="https://wa.me/918460385958" target="_blank" rel="noopener noreferrer" class="m-quick-btn" title="Chat on WhatsApp">
+                                <img src="steelform_assets/icon_whatsapp_official.svg" alt="WhatsApp"> WhatsApp
+                            </a>
+                            <a href="mailto:info@vyrospace.com" class="m-quick-btn" title="Email Us">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Email
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(drawer);
+        }
+
+        // Drawer Controls
+        function openDrawer() {
+            drawer.classList.add('is-open');
+            drawer.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('mobile-nav-locked');
+            document.documentElement.classList.add('mobile-nav-locked');
+        }
+
+        function closeDrawer() {
+            drawer.classList.remove('is-open');
+            drawer.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('mobile-nav-locked');
+            document.documentElement.classList.remove('mobile-nav-locked');
+        }
+
+        // Bind all toggles
+        const toggles = document.querySelectorAll('.mobile-nav-toggle, #mobileNavToggle, #floatingMobileToggle, .floating-mobile-toggle');
+        toggles.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                if (drawer.classList.contains('is-open')) {
+                    closeDrawer();
+                } else {
+                    openDrawer();
+                }
             });
         });
+
+        // Close button
+        const closeBtn = drawer.querySelector('#mobileDrawerClose');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                closeDrawer();
+            });
+        }
+
+        // Backdrop click
+        const backdrop = drawer.querySelector('.mobile-drawer-backdrop');
+        if (backdrop) {
+            backdrop.addEventListener('click', closeDrawer);
+        }
+
+        // Link clicks
+        drawer.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                closeDrawer();
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const targetEl = document.querySelector(href);
+                    if (targetEl) {
+                        setTimeout(() => {
+                            targetEl.scrollIntoView({ behavior: 'smooth' });
+                        }, 100);
+                    }
+                }
+            });
+        });
+
+        // Escape key to close
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && drawer.classList.contains('is-open')) {
+                closeDrawer();
+            }
+        });
     }
+
+    initMobileNavSystem();
 
     // -------------------------------------------------------------
     // 5. Scroll To Top Trigger

@@ -31,26 +31,9 @@ function scrollToTarget(hash, smooth = true) {
     let targetTop;
     if (cleanHash === '#hero') {
         targetTop = 0;
-    } else if (cleanHash === '#work' || cleanHash === '#contact') {
-        const sectionTop = target.getBoundingClientRect().top + window.pageYOffset;
-        const container = target.querySelector('.container') || target;
-        const containerHeight = container.offsetHeight;
-        const availableHeight = window.innerHeight;
-
-        // If the section is full-screen 100vh and the container fits, align sectionTop exactly
-        if (target.offsetHeight >= availableHeight && containerHeight <= availableHeight) {
-            targetTop = sectionTop;
-        } else if (containerHeight < availableHeight) {
-            // Viewport is taller than container: center container vertically
-            const containerTop = container.getBoundingClientRect().top + window.pageYOffset;
-            targetTop = containerTop - (availableHeight - containerHeight) / 2;
-        } else {
-            // Viewport is shorter than container: align top of container with slight 20px padding
-            const containerTop = container.getBoundingClientRect().top + window.pageYOffset;
-            targetTop = containerTop - 20;
-        }
     } else {
-        targetTop = target.getBoundingClientRect().top + window.pageYOffset;
+        // Natural editorial positioning with 24px comfortable breathing room
+        targetTop = target.getBoundingClientRect().top + window.pageYOffset - 24;
     }
 
     window.scrollTo({
@@ -234,28 +217,104 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contactForm');
 
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
+        contactForm.addEventListener('submit', async (e) => {
             const btn = contactForm.querySelector('.btn-submit') || contactForm.querySelector('.form-submit');
+            const fileInput = document.getElementById('files');
+            const hasFiles = fileInput && fileInput.files && fileInput.files.length > 0;
+            const formNext = document.getElementById('formNext');
+
+            // 1. If files are attached, validate size (10MB limit)
+            if (hasFiles) {
+                let totalBytes = 0;
+                for (let i = 0; i < fileInput.files.length; i++) {
+                    totalBytes += fileInput.files[i].size;
+                }
+                if (totalBytes > 10 * 1024 * 1024) {
+                    e.preventDefault();
+                    alert('Attached files exceed FormSubmit\'s 10 MB limit. Please select smaller files or paste a Google Drive / WeTransfer link in the Project Details box.');
+                    return;
+                }
+
+                // Native submission ensures browser streams multipart file binaries directly to FormSubmit without AJAX truncation
+                if (formNext) {
+                    const cleanUrl = window.location.href.split('?')[0].split('#')[0];
+                    formNext.value = cleanUrl + '?status=sent#contact';
+                }
+                if (btn) {
+                    btn.disabled = true;
+                    btn.style.pointerEvents = 'none';
+                    btn.innerHTML = `<span>Uploading Brief &amp; Attachment...</span>`;
+                }
+                // Allow standard form POST with enctype="multipart/form-data" to proceed natively
+                return;
+            }
+
+            // 2. If NO files attached, use seamless AJAX in-place submission
+            e.preventDefault();
             if (!btn) return;
             const originalHTML = btn.innerHTML;
 
-            btn.innerHTML = `
-                <span>Project Brief Sent! ✓</span>
-            `;
-            btn.style.background = '#22c55e';
-            btn.style.color = '#fff';
+            btn.disabled = true;
             btn.style.pointerEvents = 'none';
+            btn.innerHTML = `<span>Sending Brief...</span>`;
 
-            setTimeout(() => {
-                btn.innerHTML = originalHTML;
-                btn.style.background = '';
-                btn.style.color = '';
-                btn.style.pointerEvents = '';
-                contactForm.reset();
-            }, 3000);
+            try {
+                const formData = new FormData(contactForm);
+                formData.delete('attachment');
+                formData.delete('files');
+
+                const response = await fetch('https://formsubmit.co/ajax/info@vyrospace.com', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json'
+                    },
+                    body: formData
+                });
+
+                if (response.ok) {
+                    btn.innerHTML = `<span>Project Brief Sent! ✓</span>`;
+                    btn.style.background = '#22c55e';
+                    btn.style.color = '#fff';
+
+                    setTimeout(() => {
+                        btn.innerHTML = originalHTML;
+                        btn.style.background = '';
+                        btn.style.color = '';
+                        btn.style.pointerEvents = '';
+                        btn.disabled = false;
+                        contactForm.reset();
+                    }, 4000);
+                } else {
+                    throw new Error('AJAX submission failed');
+                }
+            } catch (err) {
+                // Fallback to standard native POST
+                if (formNext) {
+                    formNext.value = window.location.href.split('?')[0].split('#')[0] + '?status=sent#contact';
+                }
+                contactForm.submit();
+            }
         });
+
+        // Check if returning from a successful native file upload redirect (?status=sent)
+        if (window.location.search.includes('status=sent')) {
+            const btn = contactForm.querySelector('.btn-submit') || contactForm.querySelector('.form-submit');
+            if (btn) {
+                const originalHTML = btn.innerHTML;
+                btn.innerHTML = `<span>Project Brief &amp; Attachment Sent! ✓</span>`;
+                btn.style.background = '#22c55e';
+                btn.style.color = '#fff';
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.style.background = '';
+                    btn.style.color = '';
+                    try {
+                        const cleanUrl = window.location.pathname + window.location.hash;
+                        history.replaceState(null, null, cleanUrl);
+                    } catch (e) {}
+                }, 5000);
+            }
+        }
     }
 
 
@@ -414,12 +473,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (fileInput && fileDisplay) {
         fileInput.addEventListener('change', () => {
-            const fileCount = fileInput.files.length;
-            if (fileCount > 0) {
-                fileDisplay.textContent = `${fileCount} file${fileCount > 1 ? 's' : ''} selected`;
-                fileDisplay.style.color = 'var(--accent)';
+            const files = fileInput.files;
+            if (files.length === 1) {
+                const sizeMB = (files[0].size / (1024 * 1024)).toFixed(1);
+                fileDisplay.textContent = `📎 ${files[0].name} (${sizeMB} MB)`;
+                fileDisplay.style.color = files[0].size > 10 * 1024 * 1024 ? '#ef4444' : '#FFFFFF';
+            } else if (files.length > 1) {
+                let totalBytes = 0;
+                for (let i = 0; i < files.length; i++) totalBytes += files[i].size;
+                const sizeMB = (totalBytes / (1024 * 1024)).toFixed(1);
+                fileDisplay.textContent = `📎 ${files.length} files selected (${sizeMB} MB total)`;
+                fileDisplay.style.color = totalBytes > 10 * 1024 * 1024 ? '#ef4444' : '#FFFFFF';
             } else {
-                fileDisplay.textContent = 'CAD / PDF / SketchUp / References';
+                fileDisplay.textContent = 'CAD / PDF / SketchUp / Revit / References (Max 10MB)';
                 fileDisplay.style.color = '';
             }
         });

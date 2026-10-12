@@ -37,8 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const isMobile = window.innerWidth <= 768;
             const isTablet = window.innerWidth > 768 && window.innerWidth <= 1100;
 
-            const spacing1 = isMobile ? 150 : (isTablet ? 250 : 310);
-            const spacing2 = isMobile ? 280 : (isTablet ? 450 : 560);
+            const spacing1 = isMobile ? 150 : (isTablet ? 250 : 330);
+            const spacing2 = isMobile ? 280 : (isTablet ? 450 : 590);
             const angle1 = isMobile ? 26 : 28;
             const angle2 = isMobile ? 40 : 44;
             const scale1 = isMobile ? 0.85 : 0.88;

@@ -12,7 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="steelform.css?v=corner-clip-fix">
+    <link rel="stylesheet" href="steelform.css?v=spacing-fix">
     <!-- Preload hero poster for instant paint -->
     <link rel="preload" href="web_images/hero_poster.webp" as="image" type="image/webp">
     <link rel="canonical" href="https://vyrospace.com/">
@@ -666,7 +666,14 @@
                     </ul>
                 </div>
 
-                <form class="contact-form" id="contactForm">
+                <form class="contact-form" id="contactForm" action="https://formsubmit.co/info@vyrospace.com" method="POST" enctype="multipart/form-data">
+                    <!-- FormSubmit Configuration for info@vyrospace.com -->
+                    <input type="hidden" name="_subject" value="New Project Brief Inquiry - Vyrospace">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" id="formNext" value="">
+                    <!-- Anti-spam Honeypot -->
+                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                     <div class="form-row">
                         <div class="form-field">
                             <label for="name">Name</label>
@@ -738,10 +745,13 @@
                     <div class="form-field">
                         <label for="files">Upload Drawings / Models (Optional)</label>
                         <div class="file-upload">
-                            <input type="file" id="files" name="files" multiple
+                            <input type="file" id="files" name="attachment" multiple
                                 accept=".pdf,.jpg,.jpeg,.png,.dwg,.skp,.rvt,.fbx,.obj,.zip">
-                            <span class="file-upload-text">CAD / PDF / SketchUp / Revit / References</span>
+                            <span class="file-upload-text">CAD / PDF / SketchUp / Revit / References (Max 10MB)</span>
                         </div>
+                        <span class="file-note" style="display:block; font-size:0.75rem; color:var(--color-grey); margin-top:5px;">
+                            For files larger than 10MB (or heavy 3D scenes), paste a Google Drive, Dropbox, or WeTransfer link in the Project Details field above.
+                        </span>
                     </div>
                     <button type="submit" class="form-submit btn-submit magnetic-btn">
                         Send Project Brief
@@ -795,9 +805,9 @@
         </div>
     </footer>
 
-    <script src="script.js?v=popup-nav-v2"></script>
-    <script src="motion.js?v=3d-shadows"></script>
-    <script src="steelform.js?v=3d-shadows"></script>
+    <script src="script.js?v=native-upload-v3"></script>
+    <script src="motion.js?v=spacing-fix"></script>
+    <script src="steelform.js?v=spacing-fix"></script>
 </body>
 
 </html>

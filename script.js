@@ -241,8 +241,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     formNext.value = cleanUrl + '?status=sent#contact';
                 }
                 if (btn) {
-                    btn.disabled = true;
                     btn.style.pointerEvents = 'none';
+                    btn.style.opacity = '0.75';
                     btn.innerHTML = `<span>Uploading Brief &amp; Attachment...</span>`;
                 }
                 // Allow standard form POST with enctype="multipart/form-data" to proceed natively
